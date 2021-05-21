@@ -1,0 +1,89 @@
+QPalette{background:#D4D4D4;}*{outline:0px;}
+
+/*************************************************
+*  iconfont 按钮
+*************************************************/
+
+.IconfontBtn
+{
+    background:none;
+    border-style:none;
+    color:#B9CCE4;
+}
+
+.IconfontBtn:hover
+{
+    color:#FFFFFF;
+}
+
+.IconfontBtn:pressed
+{
+    color:#FFFFFF;
+}
+
+.IconfontBtn:checked
+{
+    color:#FFFFFF;
+}
+
+.IconfontBtn:disabled
+{
+    color:#D7D7D7;
+}
+
+QWidget[form="mainwnd"]
+{
+    border: 1px solid #366CB3;
+}
+
+QWidget[form="nav"]
+{
+    background:#366CB3;
+}
+
+QWidget[form="userdetail"]
+{
+	border: 1px solid #366CB3;
+    background:#FFFFFF;
+	color:#000000;
+}
+
+QWidget[form="userdetail"] QLabel[title="true"]
+{
+	color:#808080;
+}
+
+QWidget[form="userdetail"] QLabel[username="true"]
+{
+	font-size:14px;
+}
+
+QWidget[form="userdetail"] QLabel[sex="true"]
+{
+	color:#2090F4;
+}
+
+QWidget[form="userdetail"] QPushButton[sendmsg="true"]
+{
+    border-style:none;
+    min-width: 72px;
+    min-height: 32px;
+    background: #118DF2;
+    color: #FFFFFF;
+	border-radius:2px;
+}
+
+QWidget[form="userdetail"] QPushButton[sendmsg="true"]:hover
+{
+    background: #46A7F6;
+}
+
+QWidget[form="userdetail"] QPushButton[sendmsg="true"]:pressed
+{
+    background: #0D7CF3;
+}
+
+QWidget[form="userdetail"] QPushButton[sendmsg="true"]:disabled
+{
+    background: #D7D7D7;
+}

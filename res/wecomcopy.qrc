@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/qss/res">
+        <file>usricon.jpeg</file>
+        <file>WeComCopy.css</file>
+        <file>WeComCopy.ico</file>
+        <file>WeComCopy.png</file>
+        <file>wecomcopy.qrc</file>
+        <file>WeComCopy.rc</file>
+        <file>WeComCopy.ttf</file>
+    </qresource>
+</RCC>

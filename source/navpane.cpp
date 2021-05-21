@@ -4,6 +4,8 @@
 #include <QVBoxLayout>
 #include "iconhelper.h"
 #include "userdetaildlg.h"
+#include <QDebug>
+
 
 NavPane::NavPane(QWidget *parent) : QWidget(parent)
 {
@@ -75,11 +77,39 @@ void NavPane::InitCtrl()
     m_labSeparatorLine->setFixedHeight(1);
     m_labSeparatorLine->setStyleSheet("background-color:#4A7ABA");
     m_pUserDetail->hide();
+
+    // 初始化tab
+    QSignalMapper *pSignalMapperPushed = new QSignalMapper(this);
+    pSignalMapperPushed->setMapping(m_btnMsg, TABTITLE_MESSAGE);
+    pSignalMapperPushed->setMapping(m_btnContacts, TABTITLE_CONTACTS);
+    pSignalMapperPushed->setMapping(m_btnCalendar, TABTITLE_CALENDAR);
+    pSignalMapperPushed->setMapping(m_btnWorkspace, TABTITLE_WORKSPACE);
+    pSignalMapperPushed->setMapping(m_btnWeDoc, TABTITLE_WEDOC);
+    pSignalMapperPushed->setMapping(m_btnWeDrive, TABTITLE_WEDRIVE);
+    pSignalMapperPushed->setMapping(m_btnMeeting, TABTITLE_MEETING);
+
+    QList<CPushButtonEx *> listBtns = findChildren<CPushButtonEx *>();
+    foreach (QPushButton *btn, listBtns)
+    {
+        if (btn != m_btnUserIcon)
+            connect(btn, SIGNAL(clicked()), pSignalMapperPushed, SLOT(map()));
+    }
+
+    connect(pSignalMapperPushed, SIGNAL(mapped(int)), this, SLOT(OnSignalPushedMapped(int)));
+
+    m_btnMsg->setCheckable(true);
+    m_btnContacts->setCheckable(true);
+    m_btnCalendar->setCheckable(true);
+    m_btnWorkspace->setCheckable(true);
+    m_btnWeDoc->setCheckable(true);
+    m_btnWeDrive->setCheckable(true);
+    m_btnMeeting->setCheckable(true);
 }
 
 void NavPane::InitSolts()
 {
     connect(m_btnUserIcon, SIGNAL(clicked()), this, SLOT(OnBtnUserIconClicked()));
+    connect(m_btnMore, SIGNAL(clicked()), this, SLOT(OnBtnMoreClicked()));
 }
 
 void NavPane::Relayout()
@@ -122,4 +152,120 @@ void NavPane::OnBtnUserIconClicked()
     point.setX(ptBtn.x() - m_btnUserIcon->pos().x() + m_btnUserIcon->width() + 2);
     point.setY(ptBtn.y() - m_btnUserIcon->pos().y());
     m_pUserDetail->move(point);
+}
+
+void NavPane::OnSignalPushedMapped(int nCmd)
+{
+    emit SignalTabChange(EMainTabTitle(nCmd));
+}
+
+void NavPane::OnMainTabChange(EMainTabTitle eMainTabTitle)
+{
+    m_btnMsg->setChecked(false);
+    m_btnContacts->setChecked(false);
+    m_btnCalendar->setChecked(false);
+    m_btnWorkspace->setChecked(false);
+    m_btnWeDoc->setChecked(false);
+    m_btnWeDrive->setChecked(false);
+    m_btnMeeting->setChecked(false);
+
+    switch (eMainTabTitle)
+    {
+    case TABTITLE_MESSAGE:
+        {
+            m_btnMsg->setChecked(true);
+        }
+        break;
+
+    case TABTITLE_CONTACTS:
+        {
+            m_btnContacts->setChecked(true);
+        }
+        break;
+
+    case TABTITLE_CALENDAR:
+        {
+            m_btnCalendar->setChecked(true);
+        }
+        break;
+
+    case TABTITLE_WORKSPACE:
+        {
+            m_btnWorkspace->setChecked(true);
+        }
+        break;
+
+    case TABTITLE_WEDOC:
+        {
+            m_btnWeDoc->setChecked(true);
+        }
+        break;
+
+    case TABTITLE_WEDRIVE:
+        {
+            m_btnWeDrive->setChecked(true);
+        }
+        break;
+
+    case TABTITLE_MEETING:
+        {
+            m_btnMeeting->setChecked(true);
+        }
+        break;
+    }
+}
+
+void NavPane::OnBtnMoreClicked()
+{
+    //创建菜单对象
+    QMenu *pMenu = new QMenu();
+
+    QAction *pCollect = new QAction(tr("收藏"), pMenu);
+    //pCollect->setData(MENUITEM_CHANGE_1S);
+    QAction *pMsgMgr = new QAction(tr("消息管理器"), pMenu);
+    QAction *pInvite = new QAction(tr("邀请同事加入"), pMenu);
+    QAction *pSign = new QAction(tr("工作签名"), pMenu);
+
+    QAction *pRest = new QAction(tr("休息一下"), pMenu);
+    QAction *pGoOffwork = new QAction(tr("下班了"), pMenu);
+
+    QMenu *pChildRest = new QMenu(pMenu);
+    pChildRest->setTitle(tr("休息一下"));
+    pChildRest->addAction(pRest);
+    pChildRest->addAction(pGoOffwork);
+    pMenu->addMenu(pChildRest);
+
+    QAction *pSetting = new QAction(tr("设置"), pMenu);
+    QAction *pAbout = new QAction(tr("关于"), pMenu);
+    QAction *pFeedback = new QAction(tr("吐个槽"), pMenu);
+
+    //把QAction对象添加到菜单上
+    pMenu->addAction(pCollect);
+    pMenu->addAction(pMsgMgr);
+    pMenu->addAction(pInvite);
+    pMenu->addAction(pSign);
+    pMenu->addMenu(pChildRest);
+    pMenu->addAction(pSetting);
+    pMenu->addAction(pAbout);
+    pMenu->addAction(pFeedback);
+
+    connect(pMenu, SIGNAL(triggered(QAction*)), this, SLOT(OnMenuTriggered(QAction*)));
+
+    QPoint ptMenu = mapToGlobal(pos());
+    ptMenu.setX(ptMenu.x() + width());
+    ptMenu.setY(ptMenu.y() + height());
+    ptMenu.setY(ptMenu.y() - 248);
+    pMenu->exec(ptMenu);
+
+    //释放内存
+    QList<QAction*> list = pMenu->actions();
+    foreach (QAction* pAction, list)
+        delete pAction;
+
+    delete pMenu;
+}
+
+void NavPane::OnMenuTriggered(QAction *action)
+{
+
 }

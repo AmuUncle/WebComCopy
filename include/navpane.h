@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QtWidgets>
+#include "public.h"
+
 
 class CPushButtonEx;
 class CUserDetailDlg;
@@ -20,9 +22,16 @@ private:
     void Relayout();
 
 signals:
+    void SignalTabChange(EMainTabTitle eMainTabTitle);
 
 public slots:
     void OnBtnUserIconClicked();
+
+private slots:
+    void OnSignalPushedMapped(int nCmd);
+    void OnMainTabChange(EMainTabTitle eMainTabTitle);
+    void OnBtnMoreClicked();
+    void OnMenuTriggered(QAction *action);
 
 private:
     CPushButtonEx *m_btnUserIcon;

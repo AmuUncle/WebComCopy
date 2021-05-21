@@ -1,5 +1,49 @@
 QPalette{background:#D4D4D4;}*{outline:0px;}
 
+QMenu 
+{
+	background-color : rgb(253,253,254); 
+	padding:0px;
+	border-radius:15px;
+}
+
+QMenu::item 
+{
+	font-size:10pt;
+	color: rgb(0,0,0);
+	background-color:rgb(253,253,254);
+	padding: 8px 25px 6px 15px;
+	margin: 0px;
+}
+
+QMenu::item:selected 
+{
+	background-color : rgb(236,236,237);
+}
+
+QMenu::icon:checked 
+{
+	background: rgb(253,253,254);
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	bottom: 1px;
+	left: 1px;
+}
+
+QMenu::icon:checked:selected 
+{
+	background-color : rgb(236,236,237);
+}
+
+QMenu::separator 
+{
+	height: 2px;
+	background: rgb(235,235,236);
+	margin-left: 10px;
+	margin-right: 10px;
+}
+	
 /*************************************************
 *  iconfont 按钮
 *************************************************/
@@ -46,6 +90,11 @@ QWidget[form="userdetail"]
 	border: 1px solid #366CB3;
     background:#FFFFFF;
 	color:#000000;
+}
+
+QWidget[form="userdetail"] QLabel[link="true"]:hover,QLabel[link="true"]:hover
+{
+	color:#396EE6;
 }
 
 QWidget[form="userdetail"] QLabel[title="true"]

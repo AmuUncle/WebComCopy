@@ -3,6 +3,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QGridLayout>
+#include <QDesktopServices>
+#include <QUrl>
 #include "iconhelper.h"
 
 #if _MSC_VER >= 1600
@@ -72,6 +74,19 @@ void CUserDetailDlg::InitCtrl()
     m_labUserName->setProperty("username", "true");
     m_labSex->setProperty("sex", "true");
     m_btnSendMsg->setProperty("sendmsg", "true");
+    m_labTelValue->setProperty("link", "true");
+    m_labMailValue->setProperty("link", "true");
+    m_labDepartmentValue->setProperty("link", "true");
+
+    m_labUserName->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    m_labUserName->setCursor(Qt::IBeamCursor);
+    m_labTelValue->setCursor(Qt::PointingHandCursor);
+    m_labMailValue->setCursor(Qt::PointingHandCursor);
+    m_labDepartmentValue->setCursor(Qt::PointingHandCursor);
+
+    m_labTelValue->installEventFilter(this);    // 安装事件过滤器
+    m_labMailValue->installEventFilter(this);    // 安装事件过滤器
+    m_labDepartmentValue->installEventFilter(this);    // 安装事件过滤器
 
     m_labUserName->setText(tr("逍遥子"));
     m_labTel->setText(tr("手机"));
@@ -121,4 +136,24 @@ void CUserDetailDlg::Relayout()
     layoutTop->setSpacing(6);
     layoutTop->setContentsMargins(20, 20, 20, 20);
     setLayout(layoutTop);
+}
+
+bool CUserDetailDlg::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == m_labTelValue)   //  指定某个QLabel
+    {
+        if (event->type() == QEvent::MouseButtonPress)  // mouse button pressed
+        {
+            QDesktopServices::openUrl(QUrl(QString("tel:%1").arg(m_labTelValue->text())));
+        }
+    }
+    else if (obj == m_labMailValue) //  指定某个QLabel
+    {
+        if (event->type() == QEvent::MouseButtonPress)  // mouse button pressed
+        {
+            QDesktopServices::openUrl(QUrl(QString("mailto:%1").arg(m_labMailValue->text())));
+        }
+    }
+
+    return QWidget::eventFilter(obj, event);
 }

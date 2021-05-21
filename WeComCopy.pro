@@ -27,7 +27,8 @@ HEADERS  += include/wecomwnd.h \
     include/pushbuttonex.h \
     include/iconhelper.h \
     include/appinit.h \
-    include/userdetaildlg.h
+    include/userdetaildlg.h \
+    public.h
 
 FORMS    += ui/wecomwnd.ui
 

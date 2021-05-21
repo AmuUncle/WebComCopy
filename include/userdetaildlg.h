@@ -17,6 +17,8 @@ private:
     void InitCtrl();
     void Relayout();
 
+    bool eventFilter(QObject *obj, QEvent *event);
+
 private:
     QWidget *m_widgetTop;
     CPushButtonEx *m_btnUserIcon;

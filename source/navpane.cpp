@@ -221,7 +221,6 @@ void NavPane::OnBtnMoreClicked()
     QMenu *pMenu = new QMenu();
 
     QAction *pCollect = new QAction(tr("收藏"), pMenu);
-    //pCollect->setData(MENUITEM_CHANGE_1S);
     QAction *pMsgMgr = new QAction(tr("消息管理器"), pMenu);
     QAction *pInvite = new QAction(tr("邀请同事加入"), pMenu);
     QAction *pSign = new QAction(tr("工作签名"), pMenu);
@@ -233,7 +232,6 @@ void NavPane::OnBtnMoreClicked()
     pChildRest->setTitle(tr("休息一下"));
     pChildRest->addAction(pRest);
     pChildRest->addAction(pGoOffwork);
-    pMenu->addMenu(pChildRest);
 
     QAction *pSetting = new QAction(tr("设置"), pMenu);
     QAction *pAbout = new QAction(tr("关于"), pMenu);
@@ -242,11 +240,15 @@ void NavPane::OnBtnMoreClicked()
     //把QAction对象添加到菜单上
     pMenu->addAction(pCollect);
     pMenu->addAction(pMsgMgr);
+    pMenu->addSeparator();//添加分割线
     pMenu->addAction(pInvite);
+    pMenu->addSeparator();//添加分割线
     pMenu->addAction(pSign);
     pMenu->addMenu(pChildRest);
+    pMenu->addSeparator();//添加分割线
     pMenu->addAction(pSetting);
     pMenu->addAction(pAbout);
+    pMenu->addSeparator();//添加分割线
     pMenu->addAction(pFeedback);
 
     connect(pMenu, SIGNAL(triggered(QAction*)), this, SLOT(OnMenuTriggered(QAction*)));
@@ -254,7 +256,7 @@ void NavPane::OnBtnMoreClicked()
     QPoint ptMenu = mapToGlobal(pos());
     ptMenu.setX(ptMenu.x() + width());
     ptMenu.setY(ptMenu.y() + height());
-    ptMenu.setY(ptMenu.y() - 248);
+    ptMenu.setY(ptMenu.y() - 252);
     pMenu->exec(ptMenu);
 
     //释放内存

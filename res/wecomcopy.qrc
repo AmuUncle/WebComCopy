@@ -7,5 +7,14 @@
         <file>wecomcopy.qrc</file>
         <file>WeComCopy.rc</file>
         <file>WeComCopy.ttf</file>
+        <file>WeComCopy_Tray.png</file>
+        <file>right_arrow.png</file>
+        <file>img/compass_01.png</file>
+        <file>img/compass_02.png</file>
+        <file>img/compass_03.png</file>
+        <file>img/File Vault.png</file>
+        <file>img/Folder Actions Setup.png</file>
+        <file>img/Generic Application.png</file>
+        <file>img/Generic Network.png</file>
     </qresource>
 </RCC>

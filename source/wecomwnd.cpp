@@ -25,6 +25,8 @@ WeComWnd::WeComWnd(QWidget *parent) :
     m_btnMin = NULL;
     m_btnMax = NULL;
     m_btnClose = NULL;
+    m_trayIcon = NULL;
+    m_systemTrayMenu = NULL;
 
     m_bMaxWindows = false;
 
@@ -37,6 +39,7 @@ WeComWnd::WeComWnd(QWidget *parent) :
     InitSolts();
     Relayout();
     ChangePage();
+    InitTrayIcon();
 }
 
 WeComWnd::~WeComWnd()
@@ -55,19 +58,42 @@ void WeComWnd::CreateAllChildWnd()
     NEW_OBJECT(m_btnMin, CPushButtonEx);
     NEW_OBJECT(m_btnMax, CPushButtonEx);
     NEW_OBJECT(m_btnClose, CPushButtonEx);
+    NEW_OBJECT(m_trayIcon, QSystemTrayIcon);
+    NEW_OBJECT(m_systemTrayMenu, QMenu);
 }
 
 void WeComWnd::InitCtrl()
 {
     m_pNavPane->setFixedWidth(60);
 
-    m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, new QLabel(tr("消息会话")));
-    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, new QLabel(tr("通讯录")));
-    m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, new QLabel(tr("日程")));
-    m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, new QLabel(tr("工作台")));
-    m_pStackedWidget->insertWidget(TABTITLE_WEDOC, new QLabel(tr("微文档")));
-    m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, new QLabel(tr("微盘")));
-    m_pStackedWidget->insertWidget(TABTITLE_MEETING, new QLabel(tr("会议")));
+    QLabel *label1 = new QLabel();
+    label1->setStyleSheet("background-image: url(:/qss/res/img/compass_01.png);background-position:center;background-repeat:no-repeat;");
+
+    QLabel *label2 = new QLabel();
+    label2->setStyleSheet("background-image: url(:/qss/res/img/compass_02.png);background-position:center;background-repeat:no-repeat;");
+
+    QLabel *label3 = new QLabel();
+    label3->setStyleSheet("background-image: url(:/qss/res/img/compass_03.png);background-position:center;background-repeat:no-repeat;");
+
+    QLabel *label4 = new QLabel();
+    label4->setStyleSheet("background-image: url(:/qss/res/img/File Vault.png);background-position:center;background-repeat:no-repeat;");
+
+    QLabel *label5 = new QLabel();
+    label5->setStyleSheet("background-image: url(:/qss/res/img/Folder Actions Setup.png);background-position:center;background-repeat:no-repeat;");
+
+    QLabel *label6 = new QLabel();
+    label6->setStyleSheet("background-image: url(:/qss/res/img/Generic Application.png);background-position:center;background-repeat:no-repeat;");
+
+    QLabel *label7 = new QLabel();
+    label7->setStyleSheet("background-image: url(:/qss/res/img/Generic Network.png);background-position:center;background-repeat:no-repeat;");
+
+    m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, label1);
+    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);
+    m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, label3);
+    m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, label4);
+    m_pStackedWidget->insertWidget(TABTITLE_WEDOC, label5);
+    m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, label6);
+    m_pStackedWidget->insertWidget(TABTITLE_MEETING, label7);
 
     m_btnMin->setFixedSize(36, 26);
     m_btnMax->setFixedSize(36, 26);
@@ -88,6 +114,8 @@ void WeComWnd::InitSolts()
     connect(m_btnMin, SIGNAL(clicked()), this, SLOT(OnMinWindows()));
     connect(m_btnMax, SIGNAL(clicked()), this, SLOT(OnMaxWindows()));
     connect(m_btnClose, SIGNAL(clicked()), this, SLOT(OnClose()));
+    connect(m_trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this,
+                SLOT(OnSystemTrayIconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 void WeComWnd::Relayout()
@@ -138,6 +166,33 @@ void WeComWnd::UpdateCtrlText()
     }
 }
 
+void WeComWnd::InitTrayIcon()
+{
+    QAction *pRest = new QAction(tr("休息一下"), m_systemTrayMenu);
+    QAction *pGoOffwork = new QAction(tr("下班了"), m_systemTrayMenu);
+
+    QMenu *pChildRest = new QMenu(m_systemTrayMenu);
+    pChildRest->setTitle(tr("休息一下"));
+    pChildRest->addAction(pRest);
+    pChildRest->addAction(pGoOffwork);
+
+    QAction *restoreAction = new QAction(tr("打开主窗口"), this);
+    connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
+
+    QAction *quitAction = new QAction(tr("退出"), this);
+    connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+    m_systemTrayMenu->addMenu(pChildRest);
+    m_systemTrayMenu->addSeparator();
+    m_systemTrayMenu->addAction(restoreAction);
+    m_systemTrayMenu->addAction(quitAction);
+
+    m_trayIcon->setContextMenu(m_systemTrayMenu);
+    m_trayIcon->setIcon(QIcon(":/qss/res/WeComCopy_Tray.png"));  //设置托盘图标显示
+    m_trayIcon->setToolTip(tr("企业微信:逍遥子")); //显示提示信息
+    m_trayIcon->show();
+}
+
 void WeComWnd::OnTabChange( EMainTabTitle eMainTabTitle )
 {
     m_eMainTabTitle = eMainTabTitle;
@@ -166,5 +221,13 @@ void WeComWnd::OnMaxWindows()
 
 void WeComWnd::OnClose()
 {
-    close();
+    hide();
+}
+
+void WeComWnd::OnSystemTrayIconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    if(reason == QSystemTrayIcon::Trigger)
+        showNormal();   //系统托盘中的图标被单击
+    else if(reason == QSystemTrayIcon::DoubleClick)
+        showNormal();   //系统托盘中的图标被双击
 }

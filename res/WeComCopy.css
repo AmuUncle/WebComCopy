@@ -21,6 +21,11 @@ QMenu::item:selected
 	background-color : rgb(236,236,237);
 }
 
+QMenu::right-arrow
+{
+	image:url(:/qss/res/right_arrow.png);
+}
+
 QMenu::icon:checked 
 {
 	background: rgb(253,253,254);
@@ -38,10 +43,8 @@ QMenu::icon:checked:selected
 
 QMenu::separator 
 {
-	height: 2px;
-	background: rgb(235,235,236);
-	margin-left: 10px;
-	margin-right: 10px;
+	height: 1px;
+	background: #E6E8EB;
 }
 	
 /*************************************************

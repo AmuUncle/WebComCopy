@@ -42,6 +42,7 @@ private:
     void Relayout();
     void ChangePage();
     void UpdateCtrlText();
+    void InitTrayIcon();
 
 signals:
     void SignalTabChange(EMainTabTitle eMainTabTitle);
@@ -51,6 +52,7 @@ private slots:
     void OnMinWindows();
     void OnMaxWindows();
     void OnClose();
+    void OnSystemTrayIconActivated(QSystemTrayIcon::ActivationReason reason);
 
 private:
     Ui::WeComWnd *ui;
@@ -61,6 +63,8 @@ private:
     CPushButtonEx *m_btnMin;
     CPushButtonEx *m_btnMax;
     CPushButtonEx *m_btnClose;
+    QSystemTrayIcon *m_trayIcon;
+    QMenu *m_systemTrayMenu;
 
     EMainTabTitle m_eMainTabTitle;
     bool m_bMaxWindows;

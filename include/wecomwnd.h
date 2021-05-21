@@ -10,6 +10,7 @@ class WeComWnd;
 }
 
 class NavPane;
+class CPushButtonEx;
 
 class WeComWnd : public QWidget
 {
@@ -47,13 +48,22 @@ signals:
 
 private slots:
     void OnTabChange(EMainTabTitle eMainTabTitle);
+    void OnMinWindows();
+    void OnMaxWindows();
+    void OnClose();
 
 private:
     Ui::WeComWnd *ui;
     QStackedWidget *m_pStackedWidget;
     NavPane *m_pNavPane;
 
+    QWidget *m_widgetTitle;
+    CPushButtonEx *m_btnMin;
+    CPushButtonEx *m_btnMax;
+    CPushButtonEx *m_btnClose;
+
     EMainTabTitle m_eMainTabTitle;
+    bool m_bMaxWindows;
 };
 
 #endif // WECOMWND_H

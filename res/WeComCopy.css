@@ -78,6 +78,37 @@ QMenu::separator
 QWidget[form="mainwnd"]
 {
     border: 1px solid #366CB3;
+	background:#FFFFFF;
+}
+
+QWidget[form="mainwnd"] QPushButton[toolbar="true"],QPushButton[toolbar_close="true"]
+{
+	color:#6E7882;
+    background:none;
+}
+
+QWidget[form="mainwnd"] QPushButton[toolbar="true"]:hover
+{
+	color:#6E7882;
+    background: #E5E5E5;
+}
+
+QWidget[form="mainwnd"] QPushButton[toolbar="true"]:pressed
+{
+	color:#6E7882;
+    background: #D2D2D2;
+}
+
+QWidget[form="mainwnd"] QPushButton[toolbar_close="true"]:hover
+{
+	color:#FFFFFF;
+    background: #F44336;
+}
+
+QWidget[form="mainwnd"] QPushButton[toolbar_close="true"]:pressed
+{
+	color:#FFFFFF;
+    background:#DC3C30;
 }
 
 QWidget[form="nav"]

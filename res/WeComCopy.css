@@ -80,7 +80,7 @@ QMenu::separator
 
 QWidget[form="mainwnd"]
 {
-    border: 1px solid #366CB3;
+    	border: 1px solid #366CB3;
 	background:#FFFFFF;
 }
 

@@ -3,7 +3,7 @@
 #include <QFontDatabase>
 #include <QPainter>
 
-QFont IconHelper::m_iconFont = 0;
+QFont IconHelper::m_iconFont;
 
 bool IconHelper::Load()
 {

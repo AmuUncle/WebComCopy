@@ -30,6 +30,7 @@ WeComWnd::WeComWnd(QWidget *parent) :
 
     m_bMaxWindows = false;
 
+    setAttribute(Qt::WA_StyledBackground);  // 禁止父窗口样式影响子控件样式
     setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
     setProperty("form", "mainwnd");
     setProperty("canMove", "true");
@@ -138,7 +139,7 @@ void WeComWnd::Relayout()
     layoutMain->addWidget(m_pNavPane);
     layoutMain->addLayout(layoutMainPane);
     layoutMain->setSpacing(0);
-    layoutMain->setMargin(0);
+    layoutMain->setMargin(1);
 
     setLayout(layoutMain);
 }

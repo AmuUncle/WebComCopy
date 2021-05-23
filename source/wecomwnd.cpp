@@ -194,6 +194,14 @@ void WeComWnd::InitTrayIcon()
     m_trayIcon->show();
 }
 
+void WeComWnd::mouseDoubleClickEvent( QMouseEvent *event )
+{
+    if(!m_widgetTitle->geometry().contains(this->mapFromGlobal(QCursor::pos())))
+        return;
+
+    OnMaxWindows();
+}
+
 void WeComWnd::OnTabChange( EMainTabTitle eMainTabTitle )
 {
     m_eMainTabTitle = eMainTabTitle;

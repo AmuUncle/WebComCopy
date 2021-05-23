@@ -29,12 +29,17 @@ CUserDetailDlg::CUserDetailDlg(QWidget *parent) : QWidget(parent)
 
     m_btnSendMsg = NULL;
 
+    m_pAvatar = NULL;
+    m_labelAvatar = NULL;
+
     setAttribute(Qt::WA_StyledBackground);  // 禁止父窗口样式影响子控件样式
     setProperty("form", "userdetail");
 
     CreateAllChildWnd();
     InitCtrl();
     Relayout();
+
+    connect(m_btnUserIcon, SIGNAL(clicked()), this, SLOT(OnBtnUserIconClicked()));
 }
 
 void CUserDetailDlg::CreateAllChildWnd()
@@ -54,12 +59,23 @@ void CUserDetailDlg::CreateAllChildWnd()
     NEW_OBJECT(m_labDepartment, QLabel);
     NEW_OBJECT(m_labDepartmentValue, QLabel);
     NEW_OBJECT(m_btnSendMsg, CPushButtonEx);
+
+    NEW_OBJECT(m_pAvatar, QWidget);
+
+    if (NULL == m_labelAvatar)
+        m_labelAvatar = new QLabel(m_pAvatar);
 }
 
 void CUserDetailDlg::InitCtrl()
 {
     setFixedSize(280, 270);
     setWindowFlags(Qt::Popup);
+
+    m_pAvatar->hide();
+    m_labelAvatar->setStyleSheet("border-image: url(:/qss/res/usricon.jpeg);");
+    m_pAvatar->setFixedSize(230, 230);
+    m_pAvatar->setWindowFlags(Qt::Popup);
+    m_pAvatar->setProperty("form", "userdetail");
 
     m_btnUserIcon->setFixedSize(70, 70);
     m_btnUserIcon->setIcon(QIcon(":/qss/res/usricon.jpeg"));
@@ -136,6 +152,11 @@ void CUserDetailDlg::Relayout()
     layoutTop->setSpacing(6);
     layoutTop->setContentsMargins(20, 20, 20, 20);
     setLayout(layoutTop);
+
+    QHBoxLayout *layoutUserIcon = new QHBoxLayout(m_pAvatar);
+    layoutUserIcon->addWidget(m_labelAvatar);
+    layoutUserIcon->setSpacing(6);
+    layoutUserIcon->setMargin(8);
 }
 
 bool CUserDetailDlg::eventFilter(QObject *obj, QEvent *event)
@@ -156,4 +177,17 @@ bool CUserDetailDlg::eventFilter(QObject *obj, QEvent *event)
     }
 
     return QWidget::eventFilter(obj, event);
+}
+
+void CUserDetailDlg::OnBtnUserIconClicked()
+{
+    m_pAvatar->show();
+
+    QPoint ptBtn = m_btnUserIcon->mapToGlobal(m_btnUserIcon->pos());
+    QPoint point(ptBtn);
+    point.setX(ptBtn.x() - m_btnUserIcon->pos().x() - (m_pAvatar->width() - m_btnUserIcon->width()) / 2);
+    point.setY(ptBtn.y() - m_btnUserIcon->pos().y() + m_btnUserIcon->height() + 2);
+    m_pAvatar->move(point);
+
+    qDebug() << point;
 }

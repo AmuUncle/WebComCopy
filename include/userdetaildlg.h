@@ -19,6 +19,9 @@ private:
 
     bool eventFilter(QObject *obj, QEvent *event);
 
+public slots:
+    void OnBtnUserIconClicked();
+
 private:
     QWidget *m_widgetTop;
     CPushButtonEx *m_btnUserIcon;
@@ -35,6 +38,9 @@ private:
     QLabel *m_labDepartmentValue;
 
     CPushButtonEx *m_btnSendMsg;
+
+    QWidget *m_pAvatar;
+    QLabel *m_labelAvatar;
 };
 
 #endif // CUSERDETAILDLG_H

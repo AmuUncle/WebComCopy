@@ -52,15 +52,25 @@ void NavPane::InitCtrl()
 {
     m_btnUserIcon->setFixedSize(35, 35);
 
-    QSize sizeBtn(50, 50);
-    m_btnMsg->setFixedSize(sizeBtn);
-    m_btnContacts->setFixedSize(sizeBtn);
-    m_btnCalendar->setFixedSize(sizeBtn);
-    m_btnWorkspace->setFixedSize(sizeBtn);
-    m_btnWeDoc->setFixedSize(sizeBtn);
-    m_btnWeDrive->setFixedSize(sizeBtn);
-    m_btnMeeting->setFixedSize(sizeBtn);
-    m_btnMore->setFixedSize(sizeBtn);
+    //QSize sizeBtn(50, 50);
+    int sizeBtn = 50;
+    m_btnMsg->setFixedHeight(sizeBtn);
+    m_btnContacts->setFixedHeight(sizeBtn);
+    m_btnCalendar->setFixedHeight(sizeBtn);
+    m_btnWorkspace->setFixedHeight(sizeBtn);
+    m_btnWeDoc->setFixedHeight(sizeBtn);
+    m_btnWeDrive->setFixedHeight(sizeBtn);
+    m_btnMeeting->setFixedHeight(sizeBtn);
+    m_btnMore->setFixedHeight(sizeBtn);
+
+//    m_btnMsg->setFixedSize(sizeBtn);
+//    m_btnContacts->setFixedSize(sizeBtn);
+//    m_btnCalendar->setFixedSize(sizeBtn);
+//    m_btnWorkspace->setFixedSize(sizeBtn);
+//    m_btnWeDoc->setFixedSize(sizeBtn);
+//    m_btnWeDrive->setFixedSize(sizeBtn);
+//    m_btnMeeting->setFixedSize(sizeBtn);
+//    m_btnMore->setFixedSize(sizeBtn);
 
     m_btnUserIcon->setIcon(QIcon(":/qss/res/usricon.jpeg"));
     m_btnUserIcon->setIconSize(m_btnUserIcon->size());
@@ -114,9 +124,9 @@ void NavPane::InitSolts()
 
 void NavPane::Relayout()
 {
-    QVBoxLayout *layoutUserIcon = new QVBoxLayout();
+    QHBoxLayout *layoutUserIcon = new QHBoxLayout();
     layoutUserIcon->addWidget(m_btnUserIcon);
-    layoutUserIcon->setContentsMargins(4, 28, 16, 18);
+    layoutUserIcon->setContentsMargins(10, 28, 16, 18);
 
     QVBoxLayout *layoutCenter = new QVBoxLayout();
     layoutCenter->addLayout(layoutUserIcon);
@@ -139,7 +149,7 @@ void NavPane::Relayout()
     layoutMain->addLayout(layoutCenter);
     layoutMain->addStretch();
     layoutMain->setSpacing(0);
-    layoutMain->setContentsMargins(6, 1, 6, 1);
+    layoutMain->setContentsMargins(1, 1, 1, 1);
     setLayout(layoutMain);
 }
 

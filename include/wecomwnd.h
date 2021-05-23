@@ -44,6 +44,8 @@ private:
     void UpdateCtrlText();
     void InitTrayIcon();
 
+    void mouseDoubleClickEvent( QMouseEvent *event );
+
 signals:
     void SignalTabChange(EMainTabTitle eMainTabTitle);
 

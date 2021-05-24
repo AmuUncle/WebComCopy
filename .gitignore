@@ -42,6 +42,7 @@ target_wrapper.*
 # QtCreator CMake
 CMakeLists.txt.user*
 
+bin
 debug
 release
 ui_*.h

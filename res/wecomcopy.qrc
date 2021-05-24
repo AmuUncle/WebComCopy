@@ -16,5 +16,6 @@
         <file>img/Folder Actions Setup.png</file>
         <file>img/Generic Application.png</file>
         <file>img/Generic Network.png</file>
+        <file>QRcode.png</file>
     </qresource>
 </RCC>

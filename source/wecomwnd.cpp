@@ -5,6 +5,7 @@
 #include "navpane.h"
 #include "pushbuttonex.h"
 #include "iconhelper.h"
+#include "logindlg.h"
 
 
 #if _MSC_VER >= 1600
@@ -27,6 +28,7 @@ WeComWnd::WeComWnd(QWidget *parent) :
     m_btnClose = NULL;
     m_trayIcon = NULL;
     m_systemTrayMenu = NULL;
+    m_Logindlg = NULL;
 
     m_bMaxWindows = false;
 
@@ -48,6 +50,15 @@ WeComWnd::~WeComWnd()
     delete ui;
 }
 
+void WeComWnd::Login()
+{
+    if (m_Logindlg)
+    {
+        m_Logindlg->show();
+        m_Logindlg->setModal(true);
+    }
+}
+
 void WeComWnd::CreateAllChildWnd()
 {
 #define NEW_OBJECT(pObj, TYPE) \
@@ -61,6 +72,7 @@ void WeComWnd::CreateAllChildWnd()
     NEW_OBJECT(m_btnClose, CPushButtonEx);
     NEW_OBJECT(m_trayIcon, QSystemTrayIcon);
     NEW_OBJECT(m_systemTrayMenu, QMenu);
+    NEW_OBJECT(m_Logindlg, CLoginDlg);
 }
 
 void WeComWnd::InitCtrl()
@@ -105,12 +117,15 @@ void WeComWnd::InitCtrl()
     m_btnMin->setProperty("toolbar", "true");
     m_btnMax->setProperty("toolbar", "true");
     m_btnClose->setProperty("toolbar_close", "true");
+
+    m_Logindlg->hide();
 }
 
 void WeComWnd::InitSolts()
 {
     connect(m_pNavPane, SIGNAL(SignalTabChange(EMainTabTitle)), this, SLOT(OnTabChange(EMainTabTitle)));
     connect(this, SIGNAL(SignalTabChange(EMainTabTitle)), m_pNavPane, SLOT(OnMainTabChange(EMainTabTitle)));
+    connect(m_Logindlg, SIGNAL(SignalLoginFinish()), this, SLOT(show()));
 
     connect(m_btnMin, SIGNAL(clicked()), this, SLOT(OnMinWindows()));
     connect(m_btnMax, SIGNAL(clicked()), this, SLOT(OnMaxWindows()));

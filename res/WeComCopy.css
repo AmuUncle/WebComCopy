@@ -78,9 +78,36 @@ QMenu::separator
     color:#D7D7D7;
 }
 
+.IconfontBtn[white_bk="true"]
+{
+    background:none;
+    border-style:none;
+    color:#6E7882;
+}
+
+.IconfontBtn[white_bk="true"]:hover
+{
+    color:#6E78FF;
+}
+
+.IconfontBtn[white_bk="true"]:pressed
+{
+    color:#6E78FF;
+}
+
+.IconfontBtn[white_bk="true"]:checked
+{
+    color:#6E78FF;
+}
+
+.IconfontBtn[white_bk="true"]:disabled
+{
+    color:#D7D7D7;
+}
+
 QWidget[form="mainwnd"]
 {
-    	border: 1px solid #366CB3;
+    border: 1px solid #366CB3;
 	background:#FFFFFF;
 }
 
@@ -169,4 +196,91 @@ QWidget[form="userdetail"] QPushButton[sendmsg="true"]:pressed
 QWidget[form="userdetail"] QPushButton[sendmsg="true"]:disabled
 {
     background: #D7D7D7;
+}
+
+/*************************************************
+* 自定义对话框basedlg
+*************************************************/
+
+QWidget[form="title"]
+{
+    color:#FFFFFF;
+    background:#FFFFFF;
+}
+
+QWidget[form="title"] QLabel
+{
+    color:#FFFFFF;
+}
+
+QWidget[form="title"] QPushButton[toolbar="true"],QPushButton[toolbar_close="true"]
+{
+	color:#6E7882;
+    background:none;
+}
+
+QWidget[form="title"] QPushButton[toolbar="true"]:hover
+{
+	color:#6E7882;
+    background: #E5E5E5;
+}
+
+QWidget[form="title"] QPushButton[toolbar="true"]:pressed
+{
+	color:#6E7882;
+    background: #D2D2D2;
+}
+
+QWidget[form="title"] QPushButton[toolbar_close="true"]:hover
+{
+	color:#FFFFFF;
+    background: #F44336;
+}
+
+QWidget[form="title"] QPushButton[toolbar_close="true"]:pressed
+{
+	color:#FFFFFF;
+    background:#DC3C30;
+}
+
+QWidget[form="basedlg"]
+{
+    background:#FFFFFF;
+}
+
+QWidget[form="basedlg"] .QPushButton
+{
+    border-style:none;
+    min-width: 72px;
+    min-height: 28px;
+    background: #3D77DA;
+    color: #FFFFFF;
+}
+
+QWidget[form="basedlg"] .QPushButton:hover
+{
+    background: #6598F0;
+}
+
+QWidget[form="basedlg"] .QPushButton:pressed
+{
+    background: #105DE2;
+}
+
+QWidget[form="basedlg"] .QPushButton:disabled
+{
+    background: #D7D7D7;
+}
+
+QWidget[form="basedlg"] .QPushButton#m_btnLogin
+{
+    border-radius:19px;
+    min-height: 38px;
+}
+
+QWidget[form="basedlg"] .QLineEdit
+{
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 2px;
 }

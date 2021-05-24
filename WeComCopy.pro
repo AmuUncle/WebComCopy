@@ -20,7 +20,9 @@ SOURCES += source/main.cpp\
     source/pushbuttonex.cpp \
     source/iconhelper.cpp \
     source/appinit.cpp \
-    source/userdetaildlg.cpp
+    source/userdetaildlg.cpp \
+    source/basedlg.cpp \
+    logindlg.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -28,7 +30,9 @@ HEADERS  += include/wecomwnd.h \
     include/iconhelper.h \
     include/appinit.h \
     include/userdetaildlg.h \
-    public.h
+    public.h \
+    include/basedlg.h \
+    logindlg.h
 
 FORMS    += ui/wecomwnd.ui
 

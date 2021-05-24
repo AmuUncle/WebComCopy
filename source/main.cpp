@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setFont(QFont("Microsoft Yahei", 9));
 
+    QApplication::setQuitOnLastWindowClosed(false);
+
     //更改程序启动后任务栏图标
     a.setWindowIcon(QIcon(":/qss/res/WeComCopy.png"));
 
@@ -28,7 +30,8 @@ int main(int argc, char *argv[])
     IconHelper::Load();
 
     WeComWnd w;
-    w.show();
+    w.hide();
+    w.Login();
 
     return a.exec();
 }

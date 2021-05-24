@@ -11,6 +11,7 @@ class WeComWnd;
 
 class NavPane;
 class CPushButtonEx;
+class CLoginDlg;
 
 class WeComWnd : public QWidget
 {
@@ -34,6 +35,9 @@ public:
         MENUITEM_FULLSCREEN         = 10,
         MENUITEM_MODIFYTITLE        = 11,
     };
+
+public:
+    void Login();
 
 private:
     void CreateAllChildWnd();
@@ -67,6 +71,7 @@ private:
     CPushButtonEx *m_btnClose;
     QSystemTrayIcon *m_trayIcon;
     QMenu *m_systemTrayMenu;
+    CLoginDlg *m_Logindlg;
 
     EMainTabTitle m_eMainTabTitle;
     bool m_bMaxWindows;

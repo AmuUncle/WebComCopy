@@ -63,15 +63,6 @@ void NavPane::InitCtrl()
     m_btnMeeting->setFixedHeight(sizeBtn);
     m_btnMore->setFixedHeight(sizeBtn);
 
-//    m_btnMsg->setFixedSize(sizeBtn);
-//    m_btnContacts->setFixedSize(sizeBtn);
-//    m_btnCalendar->setFixedSize(sizeBtn);
-//    m_btnWorkspace->setFixedSize(sizeBtn);
-//    m_btnWeDoc->setFixedSize(sizeBtn);
-//    m_btnWeDrive->setFixedSize(sizeBtn);
-//    m_btnMeeting->setFixedSize(sizeBtn);
-//    m_btnMore->setFixedSize(sizeBtn);
-
     m_btnUserIcon->setIcon(QIcon(":/qss/res/usricon.jpeg"));
     m_btnUserIcon->setIconSize(m_btnUserIcon->size());
 

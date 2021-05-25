@@ -21,3 +21,6 @@
 
 ### 2021年5月24日15:53:24
 [![gvYQAA.gif](https://z3.ax1x.com/2021/05/24/gvYQAA.gif)](https://imgtu.com/i/gvYQAA)
+
+### 2021年5月25日19:15:38
+[![2SlJqH.gif](https://z3.ax1x.com/2021/05/25/2SlJqH.gif)](https://imgtu.com/i/2SlJqH)

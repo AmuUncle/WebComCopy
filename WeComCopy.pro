@@ -22,7 +22,9 @@ SOURCES += source/main.cpp\
     source/appinit.cpp \
     source/userdetaildlg.cpp \
     source/basedlg.cpp \
-    logindlg.cpp
+    source/logindlg.cpp \
+    source/friendslist.cpp \
+    source/msgpane.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -30,9 +32,11 @@ HEADERS  += include/wecomwnd.h \
     include/iconhelper.h \
     include/appinit.h \
     include/userdetaildlg.h \
-    public.h \
+    include/public.h \
     include/basedlg.h \
-    logindlg.h
+    include/logindlg.h \
+    include/friendslist.h \
+    include/msgpane.h
 
 FORMS    += ui/wecomwnd.ui
 

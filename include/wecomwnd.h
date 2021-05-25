@@ -12,6 +12,7 @@ class WeComWnd;
 class NavPane;
 class CPushButtonEx;
 class CLoginDlg;
+class CMsgPane;
 
 class WeComWnd : public QWidget
 {
@@ -49,6 +50,7 @@ private:
     void InitTrayIcon();
 
     void mouseDoubleClickEvent( QMouseEvent *event );
+    void paintEvent(QPaintEvent *event);
 
 signals:
     void SignalTabChange(EMainTabTitle eMainTabTitle);
@@ -72,6 +74,8 @@ private:
     QSystemTrayIcon *m_trayIcon;
     QMenu *m_systemTrayMenu;
     CLoginDlg *m_Logindlg;
+
+    CMsgPane *m_pMsgPane;
 
     EMainTabTitle m_eMainTabTitle;
     bool m_bMaxWindows;

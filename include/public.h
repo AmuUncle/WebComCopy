@@ -5,6 +5,7 @@
 #pragma execution_character_set("utf-8")
 #endif
 
+#include "iconhelper.h"
 
 enum EMainTabTitle
 {

@@ -2,10 +2,12 @@
 #include "ui_wecomwnd.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QPainter>
 #include "navpane.h"
 #include "pushbuttonex.h"
 #include "iconhelper.h"
 #include "logindlg.h"
+#include "msgpane.h"
 
 
 #if _MSC_VER >= 1600
@@ -29,6 +31,8 @@ WeComWnd::WeComWnd(QWidget *parent) :
     m_trayIcon = NULL;
     m_systemTrayMenu = NULL;
     m_Logindlg = NULL;
+
+    m_pMsgPane = NULL;
 
     m_bMaxWindows = false;
 
@@ -73,6 +77,8 @@ void WeComWnd::CreateAllChildWnd()
     NEW_OBJECT(m_trayIcon, QSystemTrayIcon);
     NEW_OBJECT(m_systemTrayMenu, QMenu);
     NEW_OBJECT(m_Logindlg, CLoginDlg);
+
+    NEW_OBJECT(m_pMsgPane, CMsgPane);
 }
 
 void WeComWnd::InitCtrl()
@@ -100,7 +106,7 @@ void WeComWnd::InitCtrl()
     QLabel *label7 = new QLabel();
     label7->setStyleSheet("background-image: url(:/qss/res/img/Generic Network.png);background-position:center;background-repeat:no-repeat;");
 
-    m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, label1);
+    m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, m_pMsgPane);
     m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);
     m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, label3);
     m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, label4);
@@ -163,6 +169,8 @@ void WeComWnd::ChangePage()
 {
     m_pStackedWidget->setCurrentIndex(m_eMainTabTitle);
 
+    update();
+
     emit SignalTabChange(m_eMainTabTitle);
 }
 
@@ -215,6 +223,31 @@ void WeComWnd::mouseDoubleClickEvent( QMouseEvent *event )
         return;
 
     OnMaxWindows();
+}
+
+void WeComWnd::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);         // 创建画家对象
+    painter.setRenderHint(QPainter::Antialiasing, true); // 反走样
+
+    QRect rcClient = rect();
+
+    if (TABTITLE_MESSAGE == m_eMainTabTitle)
+    {
+        QRect rcClientLeft(rcClient);
+        rcClientLeft.setRight(m_pNavPane->width() + 250);
+        rcClientLeft.setTop(rcClientLeft.top() + 1);
+        rcClientLeft.setBottom(rcClientLeft.bottom() - 1);
+        rcClientLeft.setLeft(rcClientLeft.left() + m_pNavPane->width());
+
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor("#E6E8EB"));
+        painter.drawRect(rcClientLeft);
+
+        QPen pen(QColor("#D4D6D9"));
+        painter.setPen(pen);
+        painter.drawLine(rcClientLeft.topRight(), rcClientLeft.bottomRight());
+    }
 }
 
 void WeComWnd::OnTabChange( EMainTabTitle eMainTabTitle )

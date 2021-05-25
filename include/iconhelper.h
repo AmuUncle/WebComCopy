@@ -24,6 +24,7 @@ public:
     static bool Load();
     static void SetIcon(QLabel *label, QChar iconCode, uint dwSize = 26);
     static void SetIcon(QPushButton *btn, QChar iconCode, uint dwSize = 20);
+    static void SetIcon(QPushButton *btn, QChar iconCode, const QString &strColor, uint dwSize = 20);
     static void SetIcon(QToolButton *btn, QChar iconCode, const QString &strColor = "#FFFFFF", uint dwIconSize = 26);
     static void SetIcon(QAction *action, QChar iconCode, const QString &strColor = "#000000", uint dwIconSize = 40);
     static void SetIcon(QLabel *label, const QString &strMainIcon = "", const QString &strSecIcon = "", const QString &strThirdIcon = "", uint dwIconSize = 24);

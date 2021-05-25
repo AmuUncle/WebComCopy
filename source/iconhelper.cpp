@@ -42,6 +42,17 @@ void IconHelper::SetIcon( QPushButton *btn, QChar iconCode, uint dwSize /*= 26*/
     btn->setProperty("class", "IconfontBtn");   // iconfont 单独为一类别
 }
 
+void IconHelper::SetIcon(QPushButton *btn, QChar iconCode, const QString &strColor, uint dwSize)
+{
+    if (NULL == btn)
+        return;
+
+    m_iconFont.setPixelSize(dwSize); // 图标字体的大小不会随DPI的改变而发生变化。
+    btn->setFont(m_iconFont);
+    btn->setText(iconCode);
+    btn->setStyleSheet(QString("background:none;border-style:none;color:%1").arg(strColor));
+}
+
 void IconHelper::SetIcon( QToolButton *btn, QChar iconCode, const QString &strColor /*= "#FFFFFF"*/,
                          uint dwIconSize /*= 26*/)
 {

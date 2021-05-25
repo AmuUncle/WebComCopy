@@ -6,7 +6,7 @@
 
 ; 安装程序初始定义常量
 !define PRODUCT_NAME "WeComCopy"
-!define PRODUCT_DISPLAY_NAME "vClient Pro"
+!define PRODUCT_DISPLAY_NAME "WeComCopy"
 !define PRODUCT_VERSION "v8.1"
 !define PRODUCT_PUBLISHER "Kedacom"
 !define PRODUCT_WEB_SITE "http://www.kedacom.com"

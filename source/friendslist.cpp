@@ -15,6 +15,17 @@ CFriendsList::CFriendsList(QWidget *parent) : QWidget(parent)
     Relayout();
 }
 
+void CFriendsList::OnItemClicked( QListWidgetItem *item )
+{
+    TUserInfo tUserInfo = {0};
+
+    tUserInfo.strName = item->data(Qt::UserRole).toString();
+    tUserInfo.strEmail = "hudejie2018@163.com";
+    tUserInfo.strPart = tr("设计部");
+    tUserInfo.strAvatar = item->data(Qt::UserRole + 1).toString();
+    emit SignalFriendChange(tUserInfo);
+}
+
 void CFriendsList::CreateAllChildWnd()
 {
 #define NEW_OBJECT(pObj, TYPE) \
@@ -90,6 +101,7 @@ void CFriendsList::InitCtrl()
 
         int nNameIndex = qrand() % strListName.length();
 
+
         pLabelName->setText(strListName.at(nNameIndex));
         pLabelName->setStyleSheet("font: 14px; color:#000000;");
 
@@ -102,6 +114,9 @@ void CFriendsList::InitCtrl()
         int nMsgIndex = qrand() % strListMsg.length();
         pLabelMsg->setText(strListMsg.at(nMsgIndex));
         pLabelMsg->setStyleSheet("font: 12px; color:#A4A5A7;");
+
+        item->setData(Qt::UserRole, pLabelName->text());
+        item->setData(Qt::UserRole + 1, QString(":/icon/icon/user (%1).jpg").arg(nIconIndex));
 
         QHBoxLayout *layoutMsg = new QHBoxLayout();
         layoutMsg->addWidget(pLabelMsg);
@@ -123,11 +138,13 @@ void CFriendsList::InitCtrl()
 
         m_listwidgetFriends->setItemWidget(item, pItemWidget);
     }
+
+    m_listwidgetFriends->setCurrentRow(0);
 }
 
 void CFriendsList::InitSolts()
 {
-
+    connect(m_listwidgetFriends, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnItemClicked(QListWidgetItem*)));
 }
 
 void CFriendsList::Relayout()

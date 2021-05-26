@@ -18,4 +18,14 @@ enum EMainTabTitle
     TABTITLE_MEETING = 6,      // 会议
 };
 
+
+struct TUserInfo
+{
+    QString strName;
+    QString strPart;
+    QString strEmail;
+    QString strAvatar;
+    // ...
+};
+
 #endif // PUBLIC_H

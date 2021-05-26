@@ -12,6 +12,9 @@ class CUserDetailDlg : public QWidget
 public:
     explicit CUserDetailDlg(QWidget *parent = 0);
 
+public:
+    void SetUserInfo(QString strName, QString ico);
+
 private:
     void CreateAllChildWnd();
     void InitCtrl();

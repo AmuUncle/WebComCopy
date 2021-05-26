@@ -8,7 +8,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    a.setFont(QFont("Microsoft Yahei", 9));
+
+    QFont f = QFont("Microsoft Yahei", 9);
+    f.setStyleStrategy(QFont::PreferAntialias);
+    a.setFont(f);
 
     QApplication::setQuitOnLastWindowClosed(false);
 

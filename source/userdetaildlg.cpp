@@ -42,6 +42,15 @@ CUserDetailDlg::CUserDetailDlg(QWidget *parent) : QWidget(parent)
     connect(m_btnUserIcon, SIGNAL(clicked()), this, SLOT(OnBtnUserIconClicked()));
 }
 
+void CUserDetailDlg::SetUserInfo(QString strName, QString ico)
+{
+    m_labUserName->setText(strName);
+    m_btnUserIcon->setIcon(QIcon(ico));
+    m_btnUserIcon->setIconSize(m_btnUserIcon->size());
+
+    m_labelAvatar->setStyleSheet(QString("border-image: url(%1);").arg(ico));
+}
+
 void CUserDetailDlg::CreateAllChildWnd()
 {
 #define NEW_OBJECT(pObj, TYPE) \

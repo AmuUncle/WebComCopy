@@ -244,6 +244,16 @@ void WeComWnd::paintEvent(QPaintEvent *event)
         painter.setBrush(QColor("#E6E8EB"));
         painter.drawRect(rcClientLeft);
 
+        QRect rcClientRight(rcClient);
+        rcClientRight.setRight(rcClient.right() - 1);
+        rcClientRight.setTop(rcClientLeft.top());
+        rcClientRight.setBottom(rcClientLeft.bottom());
+        rcClientRight.setLeft(rcClientLeft.right());
+
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor("#F2F3F5"));
+        painter.drawRect(rcClientRight);
+
         QPen pen(QColor("#D4D6D9"));
         painter.setPen(pen);
         painter.drawLine(rcClientLeft.topRight(), rcClientLeft.bottomRight());

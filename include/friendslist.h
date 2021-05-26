@@ -13,6 +13,12 @@ class CFriendsList : public QWidget
 public:
     explicit CFriendsList(QWidget *parent = 0);
 
+private slots:
+    void OnItemClicked(QListWidgetItem *item);
+
+signals:
+    void SignalFriendChange(TUserInfo tUserInfo);
+
 private:
     void CreateAllChildWnd();
     void InitCtrl();

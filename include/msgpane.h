@@ -5,7 +5,7 @@
 
 
 class CFriendsList;
-
+class CChatTopToolbar;
 
 class CMsgPane : public QWidget
 {
@@ -21,6 +21,7 @@ private:
 
 private:
     CFriendsList *m_pFriendsList;
+    CChatTopToolbar *m_pTopToolbar;
 };
 
 #endif // CMSGPANE_H

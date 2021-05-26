@@ -321,13 +321,13 @@ QWidget[form="userdetail"] QPushButton[sendmsg="true"]:disabled
 
 QWidget[form="title"]
 {
-    color:#FFFFFF;
+    color:#000000;
     background:#FFFFFF;
 }
 
 QWidget[form="title"] QLabel
 {
-    color:#FFFFFF;
+    color:#000000;
 }
 
 QWidget[form="title"] QPushButton[toolbar="true"],QPushButton[toolbar_close="true"]
@@ -409,7 +409,7 @@ QWidget[form="basedlg"] .QLineEdit
 QWidget[form="msgpane"]
 {
     color:#000000;
-    background:#FFFFFF;
+    background:#F2F3F5;
 }
 
 /*************************************************
@@ -421,4 +421,15 @@ QWidget[form="friendlist"]
     color:#000000;
     background:#E6E8EB;
 	border-right: 1px solid #D4D6D9;
+}
+
+/*************************************************
+* friendlist
+*************************************************/
+
+QWidget[form="toptoolbar"]
+{
+    color:#000000;
+    background:#F2F3F5;
+	border-bottom: 1px solid #DCDEE0;
 }

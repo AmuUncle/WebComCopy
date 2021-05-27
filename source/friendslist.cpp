@@ -15,7 +15,7 @@ CFriendsList::CFriendsList(QWidget *parent) : QWidget(parent)
     Relayout();
 }
 
-void CFriendsList::OnItemClicked( QListWidgetItem *item )
+void CFriendsList::OnItemClicked( QListWidgetItem *item, QListWidgetItem *previous )
 {
     TUserInfo tUserInfo = {0};
 
@@ -101,7 +101,6 @@ void CFriendsList::InitCtrl()
 
         int nNameIndex = qrand() % strListName.length();
 
-
         pLabelName->setText(strListName.at(nNameIndex));
         pLabelName->setStyleSheet("font: 14px; color:#000000;");
 
@@ -140,11 +139,16 @@ void CFriendsList::InitCtrl()
     }
 
     m_listwidgetFriends->setCurrentRow(0);
+
+    QTimer::singleShot(200, this, [&]()
+    {
+        OnItemClicked(m_listwidgetFriends->currentItem(), m_listwidgetFriends->currentItem());
+    });
 }
 
 void CFriendsList::InitSolts()
 {
-    connect(m_listwidgetFriends, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnItemClicked(QListWidgetItem*)));
+    connect(m_listwidgetFriends, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(OnItemClicked(QListWidgetItem*, QListWidgetItem *)));
 }
 
 void CFriendsList::Relayout()

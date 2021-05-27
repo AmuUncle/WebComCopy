@@ -14,7 +14,7 @@ public:
     explicit CFriendsList(QWidget *parent = 0);
 
 private slots:
-    void OnItemClicked(QListWidgetItem *item);
+    void OnItemClicked(QListWidgetItem *item, QListWidgetItem *previous);
 
 signals:
     void SignalFriendChange(TUserInfo tUserInfo);

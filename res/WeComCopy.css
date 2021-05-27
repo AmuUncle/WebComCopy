@@ -412,6 +412,33 @@ QWidget[form="msgpane"]
     background:#F2F3F5;
 }
 
+QWidget[form="msgpane"] QPushButton[sendbtn="true"]
+{
+    background:none;
+    border-style:none;
+    color:#6E7882;
+}
+
+QWidget[form="msgpane"] QPushButton[sendbtn="true"]:hover
+{
+	color:#468CEB;
+    border-style:none;
+}
+
+QWidget[form="msgpane"] QPushButton[sendbtn="true"]:pressed
+{
+	color:#468CEB;
+    border-style:none;
+}
+
+QWidget[form="msgpane"] QTextEdit 
+{
+	border-top: 1px solid #DCDEE0;
+	background: #F2F3F5;
+	padding: 8px 25px 6px 15px;
+}
+
+
 /*************************************************
 * friendlist
 *************************************************/

@@ -60,4 +60,22 @@
         <file>icon/user (39).jpg</file>
         <file>icon/user (40).jpg</file>
     </qresource>
+    <qresource prefix="/html">
+        <file>html/css/litewebchat.css</file>
+        <file>html/css/main.css</file>
+        <file>html/img/avatar/A.jpg</file>
+        <file>html/img/avatar/B.jpg</file>
+        <file>html/img/avatar/C.png</file>
+        <file>html/img/paper.png</file>
+        <file>html/js/main.js</file>
+        <file>html/js/vue.js</file>
+        <file>html/js/vue.min.js</file>
+        <file>html/axios.min.js</file>
+        <file>html/index.css</file>
+        <file>html/index.html</file>
+        <file>html/index.js</file>
+        <file>html/index1.html</file>
+        <file>html/LICENSE</file>
+        <file>html/README.md</file>
+    </qresource>
 </RCC>

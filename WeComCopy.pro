@@ -26,7 +26,8 @@ SOURCES += source/main.cpp\
     source/logindlg.cpp \
     source/friendslist.cpp \
     source/msgpane.cpp \
-    source/chattoptoolbar.cpp
+    source/chattoptoolbar.cpp \
+    source/msgqueue.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -39,7 +40,8 @@ HEADERS  += include/wecomwnd.h \
     include/logindlg.h \
     include/friendslist.h \
     include/msgpane.h \
-    include/chattoptoolbar.h
+    include/chattoptoolbar.h \
+    include/msgqueue.h
 
 FORMS    += ui/wecomwnd.ui
 

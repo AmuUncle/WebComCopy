@@ -30,3 +30,6 @@
 
 ### 2021年5月27日20:01:35
 [![2ie8W6.gif](https://z3.ax1x.com/2021/05/27/2ie8W6.gif)](https://imgtu.com/i/2ie8W6)
+
+### 2021年5月28日16:14:16
+[![2Ffl8g.gif](https://z3.ax1x.com/2021/05/28/2Ffl8g.gif)](https://imgtu.com/i/2Ffl8g)

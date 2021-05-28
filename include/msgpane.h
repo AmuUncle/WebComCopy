@@ -21,9 +21,13 @@ private:
     void InitCtrl();
     void InitSolts();
     void Relayout();
+    void SendGetRequest(QString strMsg);
+
+    bool eventFilter(QObject *obj, QEvent *e);
 
 public slots:
     void OnBtnSendClicked();
+    void OnRecvMsg(QByteArray strMsg);
 
 private:
     CFriendsList *m_pFriendsList;

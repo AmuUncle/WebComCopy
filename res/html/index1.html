@@ -33,7 +33,7 @@
 					</el-row>
 
 				</el-main>
-				
+				<!-- <button onclick="addRecvMsg1()">复制文本</button> -->
 			</el-container>
 		
 		<script type="text/javascript">
@@ -47,6 +47,7 @@
 						inputBox: '',
 						botNick: '赤岛酱',
 						thesaurus: '',
+						theAiMsg: '',
 						botAvatar: 'C.png',
 						myAvatar: 'B.jpg'
 					}
@@ -54,8 +55,9 @@
 				},
 				methods: {
 					getThesaurus: function() {
-						axios.get('https://raw.githubusercontent.com/Kyomotoi/AnimeThesaurus/main/data.json')
-							.then((response) => this.thesaurus = response.data)
+					
+						//axios.get('https://raw.githubusercontent.com/Kyomotoi/AnimeThesaurus/main/data.json')
+						//	.then((response) => this.thesaurus = response.data)
 					},
 					send: function(msg_text) {
 						this.messageList.push({
@@ -64,27 +66,21 @@
 							direction: 'cright',
 							avatar: this.myAvatar
 						});
-						var words = [],
-							reply = '';
-						for (obj in this.thesaurus) {
-							if (this.inputBox.indexOf(obj) != -1) {
-								words.push(obj);
-							}
-						}
-			
-						if (words.length != 0) {
-							word = words[Math.floor(Math.random() * words.length)];
-							list = this.thesaurus[word];
-						} else {
-							list = ["唔，没有搞懂主人在说什么诶", "没有听懂qwq", "虽然不知道在说什么，但感觉很厉害的样子~", "我是不是太笨啦，没理解主人什么意思qaq"]
-						}
-						reply = list[Math.floor(Math.random() * list.length)];
+
+						setTimeout(() => {
+							var div = document.getElementsByClassName('el-main')[0];
+							div.scrollTop = div.scrollHeight;
+							this.inputBox = '';
+						}, 100)
+					},
+					push: function(msg_text) {
 						this.messageList.push({
 							nick: this.botNick,
-							msg: reply,
+							msg: msg_text,
 							direction: 'cleft',
 							avatar: this.botAvatar
 						});
+						
 						setTimeout(() => {
 							var div = document.getElementsByClassName('el-main')[0];
 							div.scrollTop = div.scrollHeight;
@@ -93,7 +89,6 @@
 					}
 				},
 				created: function() {
-					this.getThesaurus();
 					this.messageList.push({
 						nick: this.botNick,
 						msg: '你好呀',
@@ -103,9 +98,15 @@
 				}
 			});
 			
-			function addCircle(msg)
+			function addMsg(msg)
 			{
 				app.send(msg);
+			}
+			
+			function addRecvMsg(msg)
+			{
+				console.log(msg);
+				app.push(msg);
 			}
 		</script>
 </html>

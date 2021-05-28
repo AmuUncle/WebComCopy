@@ -8,6 +8,7 @@
 #include "iconhelper.h"
 #include "logindlg.h"
 #include "msgpane.h"
+#include "msgqueue.h"
 
 
 #if _MSC_VER >= 1600
@@ -52,6 +53,8 @@ WeComWnd::WeComWnd(QWidget *parent) :
 WeComWnd::~WeComWnd()
 {
     delete ui;
+
+    MSGQUEUE->ExitInstance();
 }
 
 void WeComWnd::Login()

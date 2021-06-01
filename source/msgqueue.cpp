@@ -38,7 +38,7 @@ void CMsgQueue::ExitInstance()
     }
 }
 
-bool CMsgQueue::Push(QString item)
+bool CMsgQueue::Push(TMsgItem item)
 {
     QMutexLocker locker(&m_mutex);
 
@@ -61,10 +61,8 @@ void CMsgQueue::run()
                 hasMsg = true;
 
                 QNetworkAccessManager *m_pHttpMgr = new QNetworkAccessManager();
-                // 设置url
-                QString url = QString("http://api.qingyunke.com/api.php?key=free&appid=0&msg=%1").arg(m_listMsg.at(0));
                 QNetworkRequest requestInfo;
-                requestInfo.setUrl(QUrl(url));
+                requestInfo.setUrl(QUrl(m_listMsg.at(0).strUrl));
 
                 QEventLoop eventLoop;
                 QNetworkReply *reply =  m_pHttpMgr->get(requestInfo);
@@ -88,7 +86,7 @@ void CMsgQueue::run()
                 QByteArray responseByte = reply->readAll();
                 qDebug() << QString(responseByte);
 
-                emit SignalRecvMsg(responseByte);
+                emit SignalRecvMsg(responseByte, m_listMsg.at(0).pObj);
 
                 m_listMsg.removeFirst();
             }

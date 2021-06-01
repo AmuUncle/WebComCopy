@@ -27,7 +27,7 @@ private:
 
 public slots:
     void OnBtnSendClicked();
-    void OnRecvMsg(QByteArray strMsg);
+    void OnRecvMsg(QByteArray strMsg, QObject *obj);
 
 private:
     CFriendsList *m_pFriendsList;

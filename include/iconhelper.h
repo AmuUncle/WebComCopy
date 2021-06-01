@@ -37,6 +37,8 @@ public:
 
     static QPixmap GetDragChnPixmap( QString strText );
 
+    static QFont GetFont() { return m_iconFont; }
+
 private:
     static QFont m_iconFont;                    // 图形字体
 };

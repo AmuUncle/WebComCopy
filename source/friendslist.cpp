@@ -8,11 +8,18 @@ CFriendsList::CFriendsList(QWidget *parent) : QWidget(parent)
     m_labSearch = NULL;
     m_btnAdd = NULL;
     m_listwidgetFriends = NULL;
+    m_listwidgetContacts = NULL;
 
     CreateAllChildWnd();
     InitCtrl();
     InitSolts();
     Relayout();
+}
+
+void CFriendsList::SetContactMode(bool bContacts)
+{
+    m_listwidgetContacts->setVisible(bContacts);
+    m_listwidgetFriends->setVisible(!bContacts);
 }
 
 void CFriendsList::OnItemClicked( QListWidgetItem *item, QListWidgetItem *previous )
@@ -35,6 +42,7 @@ void CFriendsList::CreateAllChildWnd()
     NEW_OBJECT(m_labSearch, QLabel);
     NEW_OBJECT(m_btnAdd, CPushButtonEx);
     NEW_OBJECT(m_listwidgetFriends, QListWidget);
+    NEW_OBJECT(m_listwidgetContacts, QTreeWidget);
 }
 
 void CFriendsList::InitCtrl()
@@ -60,6 +68,12 @@ void CFriendsList::InitCtrl()
     pSearchLayout->setContentsMargins(0, 0, 0, 0);
     m_lineEditSearch->setLayout(pSearchLayout);
 
+    InitList();
+    InitTree();
+}
+
+void CFriendsList::InitList()
+{
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 
     QStringList strListName;
@@ -146,6 +160,27 @@ void CFriendsList::InitCtrl()
     });
 }
 
+void CFriendsList::InitTree()
+{
+    m_listwidgetContacts->hide();
+    m_listwidgetContacts->setHeaderHidden(true);
+
+    // 清空原有数据
+    m_listwidgetContacts->clear();
+    m_listwidgetContacts->setIndentation(0);
+
+    QTreeWidgetItem* pItem = new QTreeWidgetItem();
+    pItem->setText(0, tr("124"));
+
+    QStringList strings;
+    strings<< tr("124") << tr("1245") << tr("1246");
+    QTreeWidgetItem* pItemChild = new QTreeWidgetItem(strings);
+    pItem->addChild(pItemChild);
+
+    m_listwidgetContacts->addTopLevelItem(pItem);
+
+}
+
 void CFriendsList::InitSolts()
 {
     connect(m_listwidgetFriends, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(OnItemClicked(QListWidgetItem*, QListWidgetItem *)));
@@ -162,6 +197,7 @@ void CFriendsList::Relayout()
     QVBoxLayout *layoutMain = new QVBoxLayout();
     layoutMain->addLayout(layoutSearch);
     layoutMain->addWidget(m_listwidgetFriends);
+    layoutMain->addWidget(m_listwidgetContacts);
     layoutMain->setSpacing(0);
     layoutMain->setMargin(0);
 

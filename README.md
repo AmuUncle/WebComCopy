@@ -33,3 +33,6 @@
 
 ### 2021年5月28日16:14:16
 [![2Ffl8g.gif](https://z3.ax1x.com/2021/05/28/2Ffl8g.gif)](https://imgtu.com/i/2Ffl8g)
+
+### 2021年6月1日18:09:43
+[![2uRLRI.gif](https://z3.ax1x.com/2021/06/01/2uRLRI.gif)](https://imgtu.com/i/2uRLRI)

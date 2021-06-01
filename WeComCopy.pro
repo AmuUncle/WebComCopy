@@ -9,7 +9,7 @@ QT       += webenginewidgets webchannel
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = WeComCopy
+TARGET = WeComCopy1
 TEMPLATE = app
 DESTDIR = bin
 
@@ -27,7 +27,10 @@ SOURCES += source/main.cpp\
     source/friendslist.cpp \
     source/msgpane.cpp \
     source/chattoptoolbar.cpp \
-    source/msgqueue.cpp
+    source/msgqueue.cpp \
+    source/contactspane.cpp \
+    source/watermarkpane.cpp \
+    source/weatherpane.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -41,7 +44,10 @@ HEADERS  += include/wecomwnd.h \
     include/friendslist.h \
     include/msgpane.h \
     include/chattoptoolbar.h \
-    include/msgqueue.h
+    include/msgqueue.h \
+    include/contactspane.h \
+    include/watermarkpane.h \
+    include/weatherpane.h
 
 FORMS    += ui/wecomwnd.ui
 

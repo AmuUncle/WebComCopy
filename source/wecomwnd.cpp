@@ -9,6 +9,8 @@
 #include "logindlg.h"
 #include "msgpane.h"
 #include "msgqueue.h"
+#include "contactspane.h"
+#include "weatherpane.h"
 
 
 #if _MSC_VER >= 1600
@@ -34,6 +36,8 @@ WeComWnd::WeComWnd(QWidget *parent) :
     m_Logindlg = NULL;
 
     m_pMsgPane = NULL;
+    m_pContactsPane = NULL;
+    m_pWeatherPane = NULL;
 
     m_bMaxWindows = false;
 
@@ -82,6 +86,8 @@ void WeComWnd::CreateAllChildWnd()
     NEW_OBJECT(m_Logindlg, CLoginDlg);
 
     NEW_OBJECT(m_pMsgPane, CMsgPane);
+    NEW_OBJECT(m_pContactsPane, CContactsPane);
+    NEW_OBJECT(m_pWeatherPane, CWeatherPane);
 }
 
 void WeComWnd::InitCtrl()
@@ -110,8 +116,8 @@ void WeComWnd::InitCtrl()
     label7->setStyleSheet("background-image: url(:/qss/res/img/Generic Network.png);background-position:center;background-repeat:no-repeat;");
 
     m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, m_pMsgPane);
-    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);
-    m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, label3);
+    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);  m_pContactsPane->hide();
+    m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, m_pWeatherPane);
     m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, label4);
     m_pStackedWidget->insertWidget(TABTITLE_WEDOC, label5);
     m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, label6);
@@ -134,6 +140,7 @@ void WeComWnd::InitSolts()
 {
     connect(m_pNavPane, SIGNAL(SignalTabChange(EMainTabTitle)), this, SLOT(OnTabChange(EMainTabTitle)));
     connect(this, SIGNAL(SignalTabChange(EMainTabTitle)), m_pNavPane, SLOT(OnMainTabChange(EMainTabTitle)));
+    connect(this, SIGNAL(SignalTabChange(EMainTabTitle)), m_pWeatherPane, SLOT(OnMainTabChange(EMainTabTitle)));
     connect(m_Logindlg, SIGNAL(SignalLoginFinish()), this, SLOT(show()));
 
     connect(m_btnMin, SIGNAL(clicked()), this, SLOT(OnMinWindows()));
@@ -235,7 +242,7 @@ void WeComWnd::paintEvent(QPaintEvent *event)
 
     QRect rcClient = rect();
 
-    if (TABTITLE_MESSAGE == m_eMainTabTitle)
+    if (TABTITLE_MESSAGE == m_eMainTabTitle /*|| TABTITLE_CONTACTS == m_eMainTabTitle*/)
     {
         QRect rcClientLeft(rcClient);
         rcClientLeft.setRight(m_pNavPane->width() + 250);
@@ -265,6 +272,9 @@ void WeComWnd::paintEvent(QPaintEvent *event)
 
 void WeComWnd::OnTabChange( EMainTabTitle eMainTabTitle )
 {
+    if (m_eMainTabTitle == eMainTabTitle)
+        return;
+
     m_eMainTabTitle = eMainTabTitle;
 
     ChangePage();

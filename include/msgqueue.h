@@ -15,10 +15,8 @@
 
 struct TMsgItem
 {
-//    u32 dwHandle;
-//    u16 wMsgId;
-//    void *pBuf;
-//    u32 dwBufLen;
+    QString strUrl;
+    QObject *pObj;
 };
 
 class CMsgQueue : public QThread
@@ -33,18 +31,18 @@ public:
     static CMsgQueue *GetInstance();
     static void ExitInstance();
 
-    bool Push(QString item);
+    bool Push(TMsgItem item);
 
 protected:
     void run();
     void Clear();
 
 signals:
-    void SignalRecvMsg(QByteArray msg);
+    void SignalRecvMsg(QByteArray msg, QObject *pObj);
 
 private:
     static CMsgQueue *m_pMsgQueue;
-    QList<QString> m_listMsg;
+    QList<TMsgItem> m_listMsg;
     QMutex m_mutex;
 };
 

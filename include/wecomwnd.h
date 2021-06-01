@@ -13,6 +13,9 @@ class NavPane;
 class CPushButtonEx;
 class CLoginDlg;
 class CMsgPane;
+class CContactsPane;
+class CWeatherPane;
+
 
 class WeComWnd : public QWidget
 {
@@ -76,6 +79,8 @@ private:
     CLoginDlg *m_Logindlg;
 
     CMsgPane *m_pMsgPane;
+    CContactsPane *m_pContactsPane;
+    CWeatherPane *m_pWeatherPane;
 
     EMainTabTitle m_eMainTabTitle;
     bool m_bMaxWindows;

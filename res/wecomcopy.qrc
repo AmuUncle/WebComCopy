@@ -17,6 +17,18 @@
         <file>img/Generic Application.png</file>
         <file>img/Generic Network.png</file>
         <file>QRcode.png</file>
+        <file>img/weather/1.png</file>
+        <file>img/weather/2.png</file>
+        <file>img/weather/3.png</file>
+        <file>img/weather/4.png</file>
+        <file>img/weather/5.png</file>
+        <file>img/weather/6.png</file>
+        <file>img/weather/7.png</file>
+        <file>img/weather/8.png</file>
+        <file>img/weather/9.png</file>
+        <file>img/weather/10.png</file>
+        <file>img/weather/11.png</file>
+        <file>img/weather/12.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/user (1).jpg</file>

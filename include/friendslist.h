@@ -13,6 +13,9 @@ class CFriendsList : public QWidget
 public:
     explicit CFriendsList(QWidget *parent = 0);
 
+public:
+    void SetContactMode(bool bContacts);
+
 private slots:
     void OnItemClicked(QListWidgetItem *item, QListWidgetItem *previous);
 
@@ -22,6 +25,8 @@ signals:
 private:
     void CreateAllChildWnd();
     void InitCtrl();
+    void InitList();
+    void InitTree();
     void InitSolts();
     void Relayout();
 
@@ -30,6 +35,7 @@ private:
     QLabel  *m_labSearch;
     CPushButtonEx *m_btnAdd;
     QListWidget *m_listwidgetFriends;
+    QTreeWidget *m_listwidgetContacts;
 };
 
 #endif // CFRIENDSLIST_H

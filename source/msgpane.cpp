@@ -57,6 +57,7 @@ void CMsgPane::InitCtrl()
     m_labSeparatorLine->setStyleSheet("background-color:#4A7ABA");
     m_labSeparatorLine->hide();
 
+    m_pViewChat->setContextMenuPolicy(Qt::NoContextMenu);
     m_pViewChat->load(QUrl("qrc:/html/html/index1.html"));
     m_pViewChat->show();
 

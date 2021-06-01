@@ -6,7 +6,7 @@
 # 📦软件架构
 - Qt 5.9 + msvc 2015
 - Windows(x32, x64)/Linux(x32, x64) 
-- Qt 5.6以上msvc编译器都支持
+- 理论上Qt 5.6以上msvc编译器都支持
 
 # 🛠️主要技术
 
@@ -52,7 +52,7 @@
 [![2uRLRI.gif](https://z3.ax1x.com/2021/06/01/2uRLRI.gif)](https://imgtu.com/i/2uRLRI)
 
 
-## 📝参考网址
+# 📝参考网址
 
 [📗qt官网](https://doc.qt.io/)
 
@@ -60,10 +60,10 @@
 
 [📙飞扬青春](https://gitee.com/feiyangqingyun)
 
-## 📌CSDN
+# 📌CSDN
 
 #### [🎉欢迎关注CSDN](https://blog.csdn.net/qq_25549309)
 
-## 🧡Star
+# 🧡Star
 
 #### 如果你觉得项目用来学习不错，可以给项目点点star，谢谢。

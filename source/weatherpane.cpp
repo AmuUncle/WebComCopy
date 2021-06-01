@@ -400,7 +400,7 @@ void CWeatherPane::DrawWeatherForecast(QPainter *painter, int nTop)
 
     int nSapce = 10;
     int nItemW = (rcClient.width() - 60) / 3;
-    int nItemH = (rcClient.height() - nTop) / 2 - 2;
+    int nItemH = (rcClient.height() - nTop) / 2 - 5;
 
     QFont ft = painter->font();
 

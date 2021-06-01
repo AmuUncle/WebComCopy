@@ -422,7 +422,7 @@ void CWeatherPane::DrawWeatherForecast(QPainter *painter, int nTop)
             painter->save();
             QRect rcWeek(rcItem);
             rcWeek.setBottom(rcItem.top() + 40);
-            painter->setPen(QColor(5, 167, 17));
+            painter->setPen(QColor("#000000"));
             QFont ftTemp = ft;
             ftTemp.setPointSize(15);
             painter->setFont(ftTemp);
@@ -442,7 +442,7 @@ void CWeatherPane::DrawWeatherForecast(QPainter *painter, int nTop)
             QRect rcDate(rcItem);
             rcDate.setTop(rcWeek.bottom() + 2);
             rcDate.setBottom(rcWeek.bottom() + 25);
-            painter->setPen(QColor(5, 167, 17));
+            painter->setPen(QColor("#ACACAC"));
             painter->setFont(ft);
             painter->drawText(rcDate, Qt::AlignHCenter | Qt::AlignBottom, tDayWeather.strDate);
             painter->restore();
@@ -460,7 +460,7 @@ void CWeatherPane::DrawWeatherForecast(QPainter *painter, int nTop)
             QRect rcWeather(rcItem);
             rcWeather.setTop(rcImg.bottom() + 2);
             rcWeather.setBottom(rcWeather.top() + 25);
-            painter->setPen(QColor(5, 167, 17));
+            painter->setPen(QColor("#ACACAC"));
             painter->setFont(ft);
             painter->drawText(rcWeather, Qt::AlignHCenter | Qt::AlignBottom, tDayWeather.strType);
             painter->restore();
@@ -469,7 +469,7 @@ void CWeatherPane::DrawWeatherForecast(QPainter *painter, int nTop)
             QRect rcTemperature(rcItem);
             rcTemperature.setTop(rcWeather.bottom() + 2);
             rcTemperature.setBottom(rcTemperature.top() + 25);
-            painter->setPen(QColor(5, 167, 17));
+            painter->setPen(QColor("#ACACAC"));
             painter->setFont(ft);
             painter->drawText(rcTemperature, Qt::AlignHCenter | Qt::AlignBottom, tDayWeather.strTemperRange);
             painter->restore();

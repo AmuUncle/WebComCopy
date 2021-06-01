@@ -18,6 +18,8 @@ CWeatherPane::CWeatherPane(QWidget *parent) : QWidget(parent)
     m_nCurTemperature = 20;
     m_nImageRotate = 0;
     m_pUpdateTimer = new QTimer(this);
+    m_pUpdateWeatherTimer = new QTimer(this);
+    m_pUpdateWeatherTimer->start(10 * 60 * 1000);
 
     for (int i = 1; i < 13; i++)
     {
@@ -26,6 +28,7 @@ CWeatherPane::CWeatherPane(QWidget *parent) : QWidget(parent)
 
     connect(MSGQUEUE, SIGNAL(SignalRecvMsg(QByteArray, QObject *)), this, SLOT(OnRecvMsg(QByteArray, QObject *)));
     connect(m_pUpdateTimer, SIGNAL(timeout()), this, SLOT(OnTimerUpdateTimeOut()));
+    connect(m_pUpdateWeatherTimer, SIGNAL(timeout()), this, SLOT(OnTimerUpdateWeatherTimeOut()));
 
     UpdateWeather();
 }
@@ -217,6 +220,11 @@ void CWeatherPane::OnTimerUpdateTimeOut()
     update();
 }
 
+void CWeatherPane::OnTimerUpdateWeatherTimeOut()
+{
+    UpdateWeather();
+}
+
 void CWeatherPane::UpdateWeather()
 {
     m_pUpdateTimer->start(80);
@@ -343,7 +351,7 @@ int CWeatherPane::DrawWeather(QPainter *painter)
     ftTemp.setPixelSize(20);
     painter->setFont(ftTemp);
     painter->setPen(QColor("#FFFFFF"));
-    painter->drawText(rectWindIcon, Qt::AlignCenter/* | Qt::AlignLeft*/, QChar(0xe9be));
+    painter->drawText(rectWindIcon, Qt::AlignTop | Qt::AlignLeft, QChar(0xe9be));
     painter->setFont(ft);
     painter->restore();
 

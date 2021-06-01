@@ -27,6 +27,7 @@ public slots:
     void OnRecvMsg(QByteArray strMsg, QObject *obj);
     void OnMainTabChange(EMainTabTitle eMainTabTitle);
     void OnTimerUpdateTimeOut();
+    void OnTimerUpdateWeatherTimeOut();
 
 private:
     void paintEvent(QPaintEvent *event);
@@ -42,6 +43,7 @@ private:
     int m_nCurTemperature;
     int m_nImageRotate;
     QTimer *m_pUpdateTimer;
+    QTimer *m_pUpdateWeatherTimer;
 };
 
 #endif // CWEATHERPANE_H

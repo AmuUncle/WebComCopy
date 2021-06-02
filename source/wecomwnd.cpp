@@ -11,6 +11,7 @@
 #include "msgqueue.h"
 #include "contactspane.h"
 #include "weatherpane.h"
+#include "clockpane.h"
 
 
 #if _MSC_VER >= 1600
@@ -118,7 +119,7 @@ void WeComWnd::InitCtrl()
     m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, m_pMsgPane);
     m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);  m_pContactsPane->hide();
     m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, m_pWeatherPane);
-    m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, label4);
+    m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, new CClockPane(this));
     m_pStackedWidget->insertWidget(TABTITLE_WEDOC, label5);
     m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, label6);
     m_pStackedWidget->insertWidget(TABTITLE_MEETING, label7);
@@ -268,6 +269,12 @@ void WeComWnd::paintEvent(QPaintEvent *event)
         painter.setPen(pen);
         painter.drawLine(rcClientLeft.topRight(), rcClientLeft.bottomRight());
     }
+//    else if (TABTITLE_WORKSPACE == m_eMainTabTitle)
+//    {
+//        painter.setPen(Qt::NoPen);
+//        painter.setBrush(QColor("#5BB3E3"));
+//        painter.drawRect(rcClient);
+//    }
 }
 
 void WeComWnd::OnTabChange( EMainTabTitle eMainTabTitle )

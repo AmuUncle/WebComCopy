@@ -30,7 +30,8 @@ SOURCES += source/main.cpp\
     source/msgqueue.cpp \
     source/contactspane.cpp \
     source/watermarkpane.cpp \
-    source/weatherpane.cpp
+    source/weatherpane.cpp \
+    source/clockpane.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -47,7 +48,8 @@ HEADERS  += include/wecomwnd.h \
     include/msgqueue.h \
     include/contactspane.h \
     include/watermarkpane.h \
-    include/weatherpane.h
+    include/weatherpane.h \
+    include/clockpane.h
 
 FORMS    += ui/wecomwnd.ui
 

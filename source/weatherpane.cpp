@@ -37,68 +37,6 @@ void CWeatherPane::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);         // 创建画家对象
 
-//    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform | QPainter::TextAntialiasing, true); // 抗锯齿和使用平滑转换算法
-
-//    QRect rcClient = rect();
-//    rcClient.marginsRemoved(QMargins(20, 20, 20, 20));
-
-//    int nSapce = 10;
-//    int nItemW = (rcClient.width() - 60) / 3;
-//    int nItemH = rcClient.height() / 4 - 2;
-
-//    QFont ft = painter.font();
-
-
-
-//    painter.save();
-
-//    QLinearGradient batteryGradient(QPointF(0, 0), QPointF(0, height()));
-//    QColor normalColorStart = QColor("#49A0B3");
-//    QColor normalColorEnd = QColor("#3BABB9");
-//    batteryGradient.setColorAt(0.0, normalColorStart);
-//    batteryGradient.setColorAt(1.0, normalColorEnd);
-
-//    QRect rectMain(rcClient);
-//    rectMain.setLeft(rectMain.left() + 50);
-//    rectMain.setRight(rectMain.right() - 50);
-//    rectMain.setTop(rcClient.top() + 20);
-//    rectMain.setBottom(rectMain.top() + 2 * nItemH - 20);
-
-//    painter.setPen(Qt::NoPen);
-//    painter.setBrush(batteryGradient);
-//    painter.drawRoundedRect(rectMain, 10, 10);
-
-//    painter.restore();
-
-//    painter.save();
-
-//    QRect rectCity(rectMain);
-//    rectCity.setLeft(rectCity.left() + 20);
-//    rectCity.setTop(rectCity.top() + 20);
-
-//    QFont ftTemp = ft;
-//    ftTemp.setPointSize(25);
-//    painter.setFont(ftTemp);
-//    painter.setPen(QColor("#FFFFFF"));
-//    painter.drawText(rectCity, Qt::AlignTop | Qt::AlignLeft, "上海");
-//    painter.setFont(ft);
-
-//    painter.restore();
-
-
-//    painter.save();
-
-//    QRect rectIcon(rectMain);
-
-//    ftTemp = IconHelper::GetFont();
-//    ftTemp.setPointSize(50);
-//    painter.setFont(ftTemp);
-//    painter.setPen(QColor("#FFFFFF"));
-//    painter.drawText(rectIcon, Qt::AlignCenter, QChar(0xe663));
-//    painter.setFont(ft);
-
-//    painter.restore();
-
     int nBottom = DrawWeather(&painter);
     DrawWeatherForecast(&painter, nBottom);
 }
@@ -422,7 +360,7 @@ void CWeatherPane::DrawWeatherForecast(QPainter *painter, int nTop)
             painter->save();
             QRect rcWeek(rcItem);
             rcWeek.setBottom(rcItem.top() + 40);
-            painter->setPen(QColor("#000000"));
+            painter->setPen(QColor("#366CB3"));
             QFont ftTemp = ft;
             ftTemp.setPointSize(15);
             painter->setFont(ftTemp);

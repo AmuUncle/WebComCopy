@@ -26,9 +26,11 @@ public:
     QVariant Data() { return m_varData; }
     void SetData(QVariant varData) { m_varData = varData; }
     void SetExArea(bool bExArea) { m_bExArea = bExArea; }
+    void SetAspectRatio(double fRadio) { m_bRadio = true; m_fRadio = fRadio; }
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
+    void resizeEvent(QResizeEvent *event);
 
 signals:
     void SignalClicked();               // 点击正常区域
@@ -37,6 +39,8 @@ signals:
 private:
     QVariant m_varData;
     bool m_bExArea;
+    bool m_bRadio;
+    double m_fRadio;
 };
 
 #endif // CPUSHBUTTON_H

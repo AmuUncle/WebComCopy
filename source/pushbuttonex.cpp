@@ -6,6 +6,8 @@ CPushButtonEx::CPushButtonEx(QWidget *parent) : QPushButton(parent)
 {
     m_varData = 0;
     m_bExArea = false;
+    m_fRadio = 0.0;
+    m_bRadio = false;
 
     setCursor(Qt::PointingHandCursor); //设置鼠标样式
 }
@@ -29,4 +31,15 @@ void CPushButtonEx::mouseReleaseEvent( QMouseEvent *e )
         emit SignalClickedExArea();
 
     return QPushButton::mouseReleaseEvent(e);
+}
+
+void CPushButtonEx::resizeEvent(QResizeEvent *event)
+{
+    if (m_bRadio)
+    {
+        setFixedHeight(width() / m_fRadio);
+
+        this->setStyleSheet(QString("QPushButton{font: bold %1px;} QPushButton:hover{font: bold %2px;} QPushButton:pressed{font: bold %3px;}")
+                           .arg(this->height() / 2).arg(this->height() / 2 + 6).arg(this->height() / 2 + 2));
+    }
 }

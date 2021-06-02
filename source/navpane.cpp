@@ -70,7 +70,7 @@ void NavPane::InitCtrl()
     IconHelper::SetIcon(m_btnContacts, QChar(0xe636));
     IconHelper::SetIcon(m_btnCalendar, QChar(0xe663));
     IconHelper::SetIcon(m_btnWorkspace, QChar(0xe6a9));
-    IconHelper::SetIcon(m_btnWeDoc, QChar(0xe632));
+    IconHelper::SetIcon(m_btnWeDoc, QChar(0xe670));
     IconHelper::SetIcon(m_btnWeDrive, QChar(0xe641));
     IconHelper::SetIcon(m_btnMeeting, QChar(0xe647));
     IconHelper::SetIcon(m_btnMore, QChar(0xe642));

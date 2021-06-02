@@ -29,6 +29,7 @@
         <file>img/weather/10.png</file>
         <file>img/weather/11.png</file>
         <file>img/weather/12.png</file>
+        <file>WeComCopy.json</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/user (1).jpg</file>

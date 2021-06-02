@@ -12,6 +12,8 @@
 #include "contactspane.h"
 #include "weatherpane.h"
 #include "clockpane.h"
+#include "incofontpane.h"
+#include "tipwidget.h"
 
 
 #if _MSC_VER >= 1600
@@ -120,7 +122,7 @@ void WeComWnd::InitCtrl()
     m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);  m_pContactsPane->hide();
     m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, m_pWeatherPane);
     m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, new CClockPane(this));
-    m_pStackedWidget->insertWidget(TABTITLE_WEDOC, label5);
+    m_pStackedWidget->insertWidget(TABTITLE_WEDOC, new CIncoFontPane(this));
     m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, label6);
     m_pStackedWidget->insertWidget(TABTITLE_MEETING, label7);
 
@@ -135,6 +137,7 @@ void WeComWnd::InitCtrl()
     m_btnClose->setProperty("toolbar_close", "true");
 
     m_Logindlg->hide();
+    AUTOTIP->setParent(this);   //设置实例的引用者
 }
 
 void WeComWnd::InitSolts()

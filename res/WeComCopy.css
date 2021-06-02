@@ -460,3 +460,35 @@ QWidget[form="toptoolbar"]
     background:#F2F3F5;
 	border-bottom: 1px solid #DCDEE0;
 }
+
+/*************************************************
+* iconfontpane
+*************************************************/
+
+QWidget[form="iconfontpane"]
+{
+    background:#FFFFFF;
+	border-style:none;
+}
+
+QWidget[form="iconfontpane"] QPushButton[IconfontBtn="true"]
+{
+    background:none;
+    border-style:none;
+    color:#555555;
+	font-weight: bold;
+}
+
+QWidget[form="iconfontpane"] QPushButton[IconfontBtn="true"]:hover
+{
+	background:#1890FF;
+	border-radius:6px;
+	color:#FFFFFF;
+}
+
+QWidget[form="iconfontpane"] QPushButton[IconfontBtn="true"]:pressed
+{
+	background:#1890FF;
+	border-radius:6px;
+	color:#FFFFFF;
+}

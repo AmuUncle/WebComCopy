@@ -28,37 +28,37 @@
 ![导航](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/导航.gif)
 
 
-### 2021年5月21日17:43:56
+### 基础框架
 ![基础框架](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/基础框架.gif)
 
-### 2021年5月23日11:34:25
+### 用户详情
 ![用户详情](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/用户详情.png)
 
-### 2021年5月24日15:53:24
-![好友列表](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/%E5%A5%BD%E5%8F%8B%E5%88%97%E8%A1%A8.gif)
+### 好友列表
+![好友列表](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/好友列表.gif)
 
-### 2021年5月25日19:15:38
+### 模拟登录
 ![模拟登录](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/模拟登录.gif)
 
-### 2021年5月26日13:10:50
+### 聊天对话框
 ![聊天对话框](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/聊天对话框.gif)
 
-### 2021年5月27日20:01:35
+### 聊天界面
 ![聊天界面](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/聊天界面.gif)
 
-### 2021年5月28日16:14:16
+### 智能机器人
 ![智能机器人](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/智能机器人.gif)
 
-### 2021年6月1日18:09:43
+### 天气预报
 ![天气预报](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/天气预报.gif)
 
-### 2021年6月2日14:14:10
+### 自绘时钟
 ![自绘时钟](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/自绘时钟.gif)
 
-### 2021年6月2日16:49:39
+### iconfont图标展示
 ![iconfont](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/iconfont.gif)
 
-### 2021年6月2日16:49:39
+### 逗逗猫
 #### 小猫眼睛随着鼠标位置转动
 ![逗逗猫](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/%E9%80%97%E9%80%97%E7%8C%AB.gif)
 

@@ -24,9 +24,8 @@
 
 # 🗺️软件截图
 
-### 2021年5月21日12:00:00
+### 导航
 ![导航](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/导航.gif)
-
 
 ### 基础框架
 ![基础框架](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/基础框架.gif)

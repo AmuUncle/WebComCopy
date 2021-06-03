@@ -3,6 +3,9 @@
 # 📚简介
 本项目为Qt实现企业微信界面项目，纯界面逻辑，不包含真实业务逻辑。主要用于学习QWidget的使用，包含绘制，布局，信号，事件，重写，多线程，qss等技术使用。
 
+# 💾体验程序
+-  [安装包地址](https://gitee.com/hudejie/wecom-copy/raw/master/setup/Setup.exe)
+
 # 📦软件架构
 - Qt 5.9 + msvc 2015
 - Windows(x32, x64)/Linux(x32, x64) 

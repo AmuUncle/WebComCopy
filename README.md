@@ -57,6 +57,11 @@
 ### 2021年6月2日16:49:39
 [![2Qsqc6.gif](https://z3.ax1x.com/2021/06/02/2Qsqc6.gif)](https://imgtu.com/i/2Qsqc6)
 
+### 2021年6月2日16:49:39
+#### 小猫眼睛随着鼠标位置转动
+![逗逗猫](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/%E9%80%97%E9%80%97%E7%8C%AB.gif)
+
+
 # 📝参考网址
 
 #### [📗qt官网](https://doc.qt.io/)

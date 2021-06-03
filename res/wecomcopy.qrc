@@ -30,6 +30,11 @@
         <file>img/weather/11.png</file>
         <file>img/weather/12.png</file>
         <file>WeComCopy.json</file>
+        <file>img/cat/cat.png</file>
+        <file>img/cat/eye_bg.png</file>
+        <file>img/cat/eye_black.png</file>
+        <file>img/cat/eye_write.png</file>
+        <file>img/cat/feather.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/user (1).jpg</file>

@@ -67,7 +67,7 @@ void NavPane::InitCtrl()
     m_btnUserIcon->setIconSize(m_btnUserIcon->size());
 
     IconHelper::SetIcon(m_btnMsg, QChar(0xe645));
-    IconHelper::SetIcon(m_btnContacts, QChar(0xe636));
+    IconHelper::SetIcon(m_btnContacts, QChar(0xe673));
     IconHelper::SetIcon(m_btnCalendar, QChar(0xe663));
     IconHelper::SetIcon(m_btnWorkspace, QChar(0xe6a9));
     IconHelper::SetIcon(m_btnWeDoc, QChar(0xe670));

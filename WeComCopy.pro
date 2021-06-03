@@ -33,7 +33,8 @@ SOURCES += source/main.cpp\
     source/weatherpane.cpp \
     source/clockpane.cpp \
     source/incofontpane.cpp \
-    source/tipwidget.cpp
+    source/tipwidget.cpp \
+    source/catpane.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -53,7 +54,8 @@ HEADERS  += include/wecomwnd.h \
     include/weatherpane.h \
     include/clockpane.h \
     include/incofontpane.h \
-    include/tipwidget.h
+    include/tipwidget.h \
+    include/catpane.h
 
 FORMS    += ui/wecomwnd.ui
 

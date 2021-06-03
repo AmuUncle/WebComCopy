@@ -14,6 +14,7 @@
 #include "clockpane.h"
 #include "incofontpane.h"
 #include "tipwidget.h"
+#include "catpane.h"
 
 
 #if _MSC_VER >= 1600
@@ -119,7 +120,7 @@ void WeComWnd::InitCtrl()
     label7->setStyleSheet("background-image: url(:/qss/res/img/Generic Network.png);background-position:center;background-repeat:no-repeat;");
 
     m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, m_pMsgPane);
-    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, label2);  m_pContactsPane->hide();
+    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, new CCatPane(this));  m_pContactsPane->hide();
     m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, m_pWeatherPane);
     m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, new CClockPane(this));
     m_pStackedWidget->insertWidget(TABTITLE_WEDOC, new CIncoFontPane(this));

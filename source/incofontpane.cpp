@@ -128,7 +128,5 @@ void CIncoFontPane::ParseJsonFile()
                 }
             }
         }
-
-        qDebug() << QString(json);
     }
 }

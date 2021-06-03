@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "280362",
+      "name": "cat",
+      "font_class": "pussy",
+      "unicode": "e838",
+      "unicode_decimal": 59448
+    },
+    {
+      "icon_id": "3743134",
+      "name": "cat",
+      "font_class": "cat",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "17167376",
+      "name": "cat",
+      "font_class": "cat1",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
       "icon_id": "7468659",
       "name": "图标",
       "font_class": "tubiao",

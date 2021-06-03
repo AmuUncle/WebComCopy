@@ -23,6 +23,9 @@ void CClockPane::DrawClock(QPainter *p, QRect rcClock)
 {
     p->save();
 
+    QTime time = QTime::currentTime();
+    int nMs = time.second() * 1000 + time.msec();
+
     p->setRenderHint(QPainter::Antialiasing);
 
     // 原点、比例转换
@@ -34,14 +37,46 @@ void CClockPane::DrawClock(QPainter *p, QRect rcClock)
     // 绘制背景
     QRect rcBg(-95, -95, 190, 190);
     QLinearGradient batteryGradient(QPointF(-95, -95), QPointF(190, 190));
-    batteryGradient.setColorAt(0.0, QColor(50, 205, 51));
-    batteryGradient.setColorAt(1.0, QColor("#5BB3E3"));
+
+    if (time.second() < 10)
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#FF9A9E")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#FAD0C4")));
+    }
+    else if (time.second() < 20)
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#F2ECD2")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#FCB69F")));
+    }
+    else if (time.second() < 30)
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#FF9A9E")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#FECFEF")));
+    }
+    else if (time.second() < 40)
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#CFD9DF")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#E2EBF0")));
+    }
+    else if (time.second() < 50)
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#66FEEA")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#764BA2")));
+    }
+    else if (time.second() < 60)
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#FDFCFB")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#E2D1C3")));
+    }
+    else
+    {
+        batteryGradient.setColorAt(0.0, QColor(QString("#A1C4FD")));
+        batteryGradient.setColorAt(1.0, QColor(QString("#C2E9FB")));
+    }
+
     p->setPen(Qt::NoPen);
     p->setBrush(batteryGradient);
     p->drawRoundedRect(rcBg, 10, 10);
-
-    QTime time = QTime::currentTime();
-    int nMs = time.second() * 1000 + time.msec();
 
     // 绘制刻度
     p->save();

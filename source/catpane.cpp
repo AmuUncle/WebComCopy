@@ -23,6 +23,7 @@ CCatPane::CCatPane(QWidget *parent) : QWidget(parent)
     m_pixCloud003.load(":/qss/res/img/cat/cuteCloud003.png");
     m_pixCloud004.load(":/qss/res/img/cat/cuteCloud004.png");
     m_pixSun.load(":/qss/res/img/cat/cuteCloud005.png");
+    m_pixRain.load(":/qss/res/img/cat/rain.png");
 
     setMouseTracking(true);
 
@@ -89,6 +90,10 @@ void CCatPane::DrawCat(QPainter *painter, QRect rectMain)
     painter->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform | QPainter::TextAntialiasing, true);
     painter->translate(rectMain.left(), rectMain.top());
     painter->scale(rectMain.width() / 1920.0, rectMain.height() / 1080.0);
+
+    QRect rcImgRain(0, 0, 1920, 1080);
+    QPixmap pRain = m_pixRain.scaled(rcImgRain.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter->drawPixmap(rcImgRain, pRain);
 
     QRect rcImgEyeBg(730, 335, 283, 162);
     QPixmap pImgEyeBg = m_pixCatEyeBg.scaled(rcImgEyeBg.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);

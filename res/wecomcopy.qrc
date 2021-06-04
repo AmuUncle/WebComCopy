@@ -40,6 +40,7 @@
         <file>img/cat/cuteCloud003.png</file>
         <file>img/cat/cuteCloud004.png</file>
         <file>img/cat/cuteCloud005.png</file>
+        <file>img/cat/rain.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/user (1).jpg</file>

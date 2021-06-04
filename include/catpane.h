@@ -40,6 +40,7 @@ private:
     QPixmap m_pixCloud003;
     QPixmap m_pixCloud004;
     QPixmap m_pixSun;
+    QPixmap m_pixRain;
 
     QTimer *m_pCloudTimer;
 };

@@ -35,6 +35,11 @@
         <file>img/cat/eye_black.png</file>
         <file>img/cat/eye_write.png</file>
         <file>img/cat/feather.png</file>
+        <file>img/cat/cuteCloud001.png</file>
+        <file>img/cat/cuteCloud002.png</file>
+        <file>img/cat/cuteCloud003.png</file>
+        <file>img/cat/cuteCloud004.png</file>
+        <file>img/cat/cuteCloud005.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/user (1).jpg</file>

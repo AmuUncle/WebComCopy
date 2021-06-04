@@ -112,6 +112,7 @@ void CIncoFontPane::ParseJsonFile()
                                 IconHelper::SetIcon(btn, cUnicode, 30);
                                 btn->setProperty("IconfontBtn", "true");   // iconfont 单独为一类别
                                 btn->SetData(cUnicode);
+                                btn->setToolTip(QString("0x%1").arg(strUnicodeHex));
                                 layoutMain->addWidget(btn, nRow, nCol);
                                 connect(btn, SIGNAL(clicked()), this, SLOT(OnBtnClicked()));
 

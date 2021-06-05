@@ -15,6 +15,7 @@
 #include "incofontpane.h"
 #include "tipwidget.h"
 #include "catpane.h"
+#include "notificationpane.h"
 
 
 #if _MSC_VER >= 1600
@@ -49,6 +50,9 @@ WeComWnd::WeComWnd(QWidget *parent) :
     setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
     setProperty("form", "mainwnd");
     setProperty("canMove", "true");
+
+    AUTOTIP->setParent(this);   //设置实例的引用者
+    NotificationMgr::GetInstance()->Init(this);
 
     CreateAllChildWnd();
     InitCtrl();
@@ -138,7 +142,6 @@ void WeComWnd::InitCtrl()
     m_btnClose->setProperty("toolbar_close", "true");
 
     m_Logindlg->hide();
-    AUTOTIP->setParent(this);   //设置实例的引用者
 }
 
 void WeComWnd::InitSolts()

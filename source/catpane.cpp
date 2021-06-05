@@ -32,7 +32,7 @@ CCatPane::CCatPane(QWidget *parent) : QWidget(parent)
 
     m_pCloudTimer = new QTimer(this);
     connect(m_pCloudTimer, SIGNAL(timeout()), this, SLOT(OnTimerCloudTimeOut()));
-    m_pCloudTimer->start(100);
+    m_pCloudTimer->start(1000);
 }
 
 void CCatPane::paintEvent(QPaintEvent *)

@@ -35,9 +35,6 @@ void CIncoFontPane::OnBtnClicked()
     clipboard->setText(QString("0x%1").arg(QString::number(btnSender->Data().toInt(), 16)));
 
     AUTOTIP->SetMesseage(QString("0x%1 复制成功").arg(QString::number(btnSender->Data().toInt(), 16)));
-
-
-    NotificationMgr::GetInstance()->Notice("1234");
 }
 
 void CIncoFontPane::CreateAllChildWnd()

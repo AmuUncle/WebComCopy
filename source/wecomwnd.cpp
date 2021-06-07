@@ -16,6 +16,7 @@
 #include "tipwidget.h"
 #include "catpane.h"
 #include "notificationpane.h"
+#include "component.h"
 
 
 #if _MSC_VER >= 1600
@@ -51,7 +52,6 @@ WeComWnd::WeComWnd(QWidget *parent) :
     setProperty("form", "mainwnd");
     setProperty("canMove", "true");
 
-    AUTOTIP->setParent(this);   //设置实例的引用者
     NotificationMgr::GetInstance()->Init(this);
 
     CreateAllChildWnd();
@@ -128,7 +128,7 @@ void WeComWnd::InitCtrl()
     m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, m_pWeatherPane);
     m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, new CClockPane(this));
     m_pStackedWidget->insertWidget(TABTITLE_WEDOC, new CIncoFontPane(this));
-    m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, label6);
+    m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, new CComponent(this));
     m_pStackedWidget->insertWidget(TABTITLE_MEETING, label7);
 
     m_btnMin->setFixedSize(36, 26);
@@ -141,6 +141,7 @@ void WeComWnd::InitCtrl()
     m_btnMax->setProperty("toolbar", "true");
     m_btnClose->setProperty("toolbar_close", "true");
 
+    AUTOTIP->setParent(this);   //设置实例的引用者
     m_Logindlg->hide();
 }
 

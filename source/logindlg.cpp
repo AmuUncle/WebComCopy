@@ -43,8 +43,10 @@ void CLoginDlg::InitCtrl()
     setFixedSize(300, 425);
     EnableMoveWindow(true);
 
-    QDesktopWidget *desktop = QApplication::desktop();
-    move((desktop->width() - this->width())/2, (desktop->height()-this->height()) / 2);
+    QDesktopWidget *desktopWidget = QApplication::desktop();
+    QRect screenRect = desktopWidget->screenGeometry();
+
+    move((screenRect.width() - this->width())/2, (screenRect.height() - this->height()) / 2);
 
     m_labUserIcon->setStyleSheet("border-image: url(:/qss/res/usricon.jpeg);");
     m_labUserIcon->setFixedSize(110, 110);

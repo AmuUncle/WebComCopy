@@ -368,10 +368,10 @@ QWidget[form="basedlg"]
 QWidget[form="basedlg"] .QPushButton
 {
     border-style:none;
-    min-width: 72px;
     min-height: 28px;
     background: #3D77DA;
     color: #FFFFFF;
+	border-radius:2px;
 }
 
 QWidget[form="basedlg"] .QPushButton:hover

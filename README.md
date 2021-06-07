@@ -63,6 +63,10 @@
 ### 逗逗猫（小猫眼睛随着鼠标位置转动）
 ![逗逗猫](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/%E9%80%97%E9%80%97%E7%8C%AB.gif)
 
+### 组件
+### 通知提醒框
+![通知提醒框](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/组件_通知提醒框.gif)
+
 
 # 📝参考网址
 

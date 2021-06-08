@@ -136,9 +136,15 @@ void CPopconfirm::Show(CPopconfirm::EAlignment eAlignment)
         break;
     }
 
-    qDebug() << parentWidget()->pos() << this->pos() << ptParent << point;
-    move(point);
-    qDebug() << parentWidget()->pos() << this->pos();
+    QRect rcStart, rcEnd;
+    rcStart = QRect(point.x() - 50, point.y(), width(), height());
+    rcEnd = QRect(point.x(), point.y(), width(), height());
+
+    QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
+    animation->setDuration(100);
+    animation->setStartValue(rcStart);
+    animation->setEndValue(rcEnd);
+    animation->start();
 }
 
 void CPopconfirm::paintEvent(QPaintEvent *event)

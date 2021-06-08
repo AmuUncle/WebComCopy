@@ -389,6 +389,31 @@ QWidget[form="basedlg"] .QPushButton:disabled
     background: #D7D7D7;
 }
 
+QWidget[form="basedlg"] .QPushButton#m_btnNo
+{
+    border: 1px solid #D9D9D9;
+    background: none;
+    color: #000000;
+	border-radius:2px;
+}
+
+QWidget[form="basedlg"] .QPushButton#m_btnNo:hover
+{
+    border: 1px solid #40A9FF;
+	color: #40A9FF;
+}
+
+QWidget[form="basedlg"] .QPushButton#m_btnNo:pressed
+{
+    border: 1px solid #40A9FF;
+	color: #40A9FF;
+}
+
+QWidget[form="basedlg"] .QPushButton#m_btnNo:disabled
+{
+    background: #D7D7D7;
+}
+
 QWidget[form="basedlg"] .QPushButton#m_btnLogin
 {
     border-radius:19px;

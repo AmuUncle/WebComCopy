@@ -67,6 +67,9 @@
 #### 通知提醒框
 ![通知提醒框](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/组件_通知提醒框.gif)
 
+#### 气泡确认框
+![气泡确认框](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/组件_气泡确认框.gif)
+
 
 # 📝参考网址
 

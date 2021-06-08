@@ -24,10 +24,10 @@ private:
 
 private:
     static TTipWidget *m_pTipWidget;
-    QWidget *mpParent;
-    QTimer  *mpTimer;
-    bool     mbEnter;
-    int      mnTransparent;
+    QWidget *m_pParent;
+    QTimer  *m_pTimer;
+    bool     m_bEnter;
+    int      m_nTransparent;
 };
 
 #define AUTOTIP TTipWidget::Instance()

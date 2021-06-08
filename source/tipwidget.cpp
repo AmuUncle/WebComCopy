@@ -1,17 +1,19 @@
 ﻿#include "tipwidget.h"
+#include <QPropertyAnimation>
+
 
 TTipWidget *TTipWidget::m_pTipWidget = NULL;
 
 TTipWidget::TTipWidget()
-    : mpParent(nullptr)
-    , mbEnter(false)
-    , mnTransparent(200)
+    : m_pParent(nullptr)
+    , m_bEnter(false)
+    , m_nTransparent(200)
 {
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setAlignment(Qt::AlignCenter);
 
-    mpTimer = new QTimer(this);
-    connect(mpTimer, &QTimer::timeout, this, &TTipWidget::OnTimer);
+    m_pTimer = new QTimer(this);
+    connect(m_pTimer, &QTimer::timeout, this, &TTipWidget::OnTimer);
 
     setVisible(false);
 }
@@ -23,41 +25,32 @@ TTipWidget::~TTipWidget()
 
 void TTipWidget::enterEvent(QEvent *)
 {
-    mbEnter       = true;
-    mnTransparent = 200;
-    setStyleSheet(QString("color:white;font:12px \"Microsoft YaHei\";border-radius:5px;background-color:rgba(80, 80, 80, %1);").arg(mnTransparent));
+    m_bEnter       = true;
+    //setStyleSheet(QString("color:white;font:12px \"Microsoft YaHei\";border-radius:1px;background-color:rgba(24, 144, 255);"));
 }
 
 void TTipWidget::leaveEvent(QEvent *)
 {
-    mbEnter = false;
+    m_bEnter = false;
 }
 
 void TTipWidget::OnTimer()
 {
-    if (mbEnter)
-    {
+    if (m_bEnter)
         return;
+
+    if (nullptr != m_pParent)
+    {
+        QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
+        animation->setDuration(150);
+        animation->setStartValue(QRect((m_pParent->width() - width()) >> 1, 40, width(), height()));
+        animation->setEndValue(QRect((m_pParent->width() - width()) >> 1, -height(), width(), height()));
+        animation->start();
+
+        connect(animation, &QPropertyAnimation::finished, this, &TTipWidget::hide);
     }
 
-    mnTransparent -= 3;
-    if (mnTransparent > 0)
-    {
-        if (mpParent && parentWidget())
-        {
-            QPoint pt((parentWidget()->width() - width()) >> 1, 40);
-            if (pos() != pt)
-            {
-                move(pt);
-            }
-        }
-        setStyleSheet(QString("color:white;font:12px \"Microsoft YaHei\";border-radius:5px;background-color:rgba(80, 80, 80, %1);").arg(mnTransparent));
-    }
-    else
-    {
-        mpTimer->stop();
-        setVisible(false);
-    }
+    m_pTimer->stop();
 }
 
 void TTipWidget::SetMesseage(const QString &strMessage, const QPoint *pPoint)
@@ -70,11 +63,11 @@ void TTipWidget::SetMesseage(const QString &strMessage, const QPoint *pPoint)
     QFontMetrics fm1(font());
     setFixedSize(fm1.width(strMessage) + 30, 30);
 
-    mpParent = parentWidget();
+    m_pParent = parentWidget();
 
-    if (width() > mpParent->width())
+    if (width() > m_pParent->width())
     {
-        setFixedSize(mpParent->width() - 60, 60);
+        setFixedSize(m_pParent->width() - 60, 60);
         setWordWrap(true);
     }
     else
@@ -84,23 +77,27 @@ void TTipWidget::SetMesseage(const QString &strMessage, const QPoint *pPoint)
 
     setText(strMessage);
 
-    if (nullptr != mpParent)
+    if (nullptr != m_pParent)
     {
         if (nullptr != pPoint)
         {
-            move(mpParent->mapFromGlobal(*pPoint));
-            mpParent = nullptr;
+            move(m_pParent->mapFromGlobal(*pPoint));
+            m_pParent = nullptr;
         }
         else
         {
-            move((mpParent->width() - width()) >> 1, 40);
+            QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
+            animation->setDuration(150);
+            animation->setStartValue(QRect((m_pParent->width() - width()) >> 1, -height(), width(), height()));
+            animation->setEndValue(QRect((m_pParent->width() - width()) >> 1, 40, width(), height()));
+            animation->start();
         }
     }
 
+    setStyleSheet(QString("color:white;font:12px \"Microsoft YaHei\";border-radius:2px;background-color:rgba(24, 144, 255);"));
     setVisible(true);
-    mnTransparent = 200;
 
-    mpTimer->start(30);
+    m_pTimer->start(3 * 1000);
 }
 
 TTipWidget *TTipWidget::Instance()

@@ -30,6 +30,19 @@ private:
     QPushButton *m_btnOpenRB;
 
     QGroupBox *m_groupPopconfirm;
+    QPushButton *m_btnTop;
+    QPushButton *m_btnLeft;
+    QPushButton *m_btnRight;
+    QPushButton *m_btnBottom;
+
+    QPushButton *m_btnTL;
+    QPushButton *m_btnTR;
+    QPushButton *m_btnLT;
+    QPushButton *m_btnRT;
+    QPushButton *m_btnLB;
+    QPushButton *m_btnRB;
+    QPushButton *m_btnBL;
+    QPushButton *m_btnBR;
 };
 
 #endif // CCOMPONENT_H

@@ -20,7 +20,7 @@ NotificationPane::NotificationPane(QWidget *parent) : QWidget(parent)
     m_nIndex = 0;
 
     setAttribute(Qt::WA_StyledBackground);  // 禁止父窗口样式影响子控件样式
-    setWindowFlags(windowFlags() | Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
+    setWindowFlags(windowFlags() | Qt::ToolTip | Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
     setProperty("form", "iconfontpane");
     setAttribute(Qt::WA_TranslucentBackground, true);
 
@@ -279,17 +279,14 @@ void NotificationMgr::ShowAll()
         {
            pNotice->show();
 
+           const int nSpace = 10;
            QSize size = pNotice->size();
-
            QRect rcStart, rcEnd;
-
-
            QPoint ptStart, ptEnd;
-
            if (tItem.dwFlag & AlignLeft)
            {
                ptStart.setX(-size.width());
-               ptEnd.setX(10);
+               ptEnd.setX(nSpace);
            }
            if (tItem.dwFlag & AlignTop)
            {
@@ -299,7 +296,7 @@ void NotificationMgr::ShowAll()
            if (tItem.dwFlag & AlignRight)
            {
                ptStart.setX(dWidth);
-               ptEnd.setX(dWidth - size.width() - 10);
+               ptEnd.setX(dWidth - size.width() - nSpace);
            }
            if (tItem.dwFlag & AlignBottom)
            {
@@ -312,8 +309,6 @@ void NotificationMgr::ShowAll()
 
            if (tItem.bNew)
            {
-               pNotice->move(dWidth - size.width() - 10, nStartHeight);
-
                QPropertyAnimation *animation = new QPropertyAnimation(pNotice, "geometry");
                animation->setDuration(200);
                animation->setStartValue(rcStart);
@@ -326,7 +321,7 @@ void NotificationMgr::ShowAll()
            else
            {
                QSize size = pNotice->size();
-               pNotice->move(dWidth - size.width() - 10, nStartHeight);
+               pNotice->move(dWidth - size.width() - nSpace, nStartHeight);
            }
 
            nStartHeight += size.height();

@@ -88,6 +88,24 @@ void CSlider::paintEvent(QPaintEvent *)
         painter.drawRoundedRect(rcAllSel, 5, 5);
     }
 
+    if (m_bSelStart)
+    {
+        painter.save();
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor(145, 213, 255, 150));
+        painter.drawEllipse(itemStart.rcArar.marginsAdded(QMargins(8, 8, 8, 8)));
+        painter.restore();
+    }
+
+    if (m_bSelEnd)
+    {
+        painter.save();
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor(145, 213, 255, 150));
+        painter.drawEllipse(itemEnd.rcArar.marginsAdded(QMargins(8, 8, 8, 8)));
+        painter.restore();
+    }
+
     painter.save();
     painter.setPen(Qt::NoPen);
     painter.setBrush(QColor(colorSel));

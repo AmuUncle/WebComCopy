@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QtWidgets>
-
+#include "slider.h"
 
 class CComponent : public QWidget
 {
@@ -17,6 +17,7 @@ private:
     void InitCtrl();
     void InitNoticeCtrl();
     void InitPopconfirm();
+    void InitSlider();
     void InitSolts();
     void Relayout();
 
@@ -34,6 +35,10 @@ private:
     QPushButton *m_btnLeft;
     QPushButton *m_btnRight;
     QPushButton *m_btnBottom;
+
+    QGroupBox *m_groupSlider;
+    CSlider *m_pSlider;
+    CSlider *m_pSlider2;
 
     QPushButton *m_btnTL;
     QPushButton *m_btnTR;

@@ -30,6 +30,10 @@ CComponent::CComponent(QWidget *parent) : QWidget(parent)
     m_btnBL = NULL;
     m_btnBR = NULL;
 
+    m_groupSlider = NULL;
+    m_pSlider = NULL;
+    m_pSlider2 = NULL;
+
     setAttribute(Qt::WA_StyledBackground);  // 禁止父窗口样式影响子控件样式
     setProperty("form", "basedlg");
 
@@ -66,12 +70,17 @@ void CComponent::CreateAllChildWnd()
     NEW_OBJECT(m_btnRB, QPushButton);
     NEW_OBJECT(m_btnBL, QPushButton);
     NEW_OBJECT(m_btnBR, QPushButton);
+
+    NEW_OBJECT(m_groupSlider, QGroupBox);
+    NEW_OBJECT(m_pSlider, CSlider);
+    NEW_OBJECT(m_pSlider2, CSlider);
 }
 
 void CComponent::InitCtrl()
 {
     InitNoticeCtrl();
     InitPopconfirm();
+    InitSlider();
 }
 
 void CComponent::InitNoticeCtrl()
@@ -107,7 +116,7 @@ void CComponent::InitNoticeCtrl()
 
 void CComponent::InitPopconfirm()
 {
-    m_groupPopconfirm->setFixedHeight(220);
+    //m_groupPopconfirm->setFixedHeight(220);
     m_groupPopconfirm->setTitle(tr("气泡确认框"));
     m_btnTop->setText("Top");
     m_btnLeft->setText("Left");
@@ -141,6 +150,30 @@ void CComponent::InitPopconfirm()
     layoutComponent->setMargin(10);
 
     m_groupPopconfirm->setLayout(layoutComponent);
+}
+
+void CComponent::InitSlider()
+{
+    m_groupSlider->setFixedHeight(220);
+    m_groupSlider->setTitle(tr("滑动输入条"));
+
+    m_pSlider->EnableRange(true);
+    m_pSlider->SetRange(0, 1000);
+    m_pSlider->SetStep(1);
+    m_pSlider->SetPos(10, 100);
+
+    m_pSlider2->EnableRange(false);
+    m_pSlider2->SetRange(0, 100);
+    m_pSlider2->SetStep(1);
+    m_pSlider2->SetCurPos(50);
+    m_pSlider2->EnablePercent(true);
+
+    QVBoxLayout *layoutComponent = new QVBoxLayout();
+    layoutComponent->addWidget(m_pSlider);
+    layoutComponent->addWidget(m_pSlider2);
+    layoutComponent->setSpacing(6);
+    layoutComponent->setMargin(6);
+    m_groupSlider->setLayout(layoutComponent);
 }
 
 void CComponent::InitSolts()
@@ -258,17 +291,13 @@ void CComponent::InitSolts()
 
 void CComponent::Relayout()
 {
-    QGridLayout *layoutComponent = new QGridLayout();
-    layoutComponent->addWidget(m_groupNotice, 0, 0, 3, 6);
-    layoutComponent->addWidget(m_groupPopconfirm, 3, 0, 3, 6);
-    layoutComponent->setSpacing(8);
-    layoutComponent->setMargin(25);
-
     QVBoxLayout *layoutMain = new QVBoxLayout();
-    layoutMain->addLayout(layoutComponent);
-    layoutMain->addStretch();
-    layoutMain->setSpacing(0);
-    layoutMain->setMargin(0);
+    layoutMain->addWidget(m_groupNotice);
+    layoutMain->addWidget(m_groupPopconfirm);
+    layoutMain->addWidget(m_groupSlider);
+    //layoutMain->addStretch();
+    layoutMain->setSpacing(8);
+    layoutMain->setMargin(25);
 
     setLayout(layoutMain);
 }

@@ -38,7 +38,8 @@ SOURCES += source/main.cpp\
     source/navigationbar.cpp \
     source/notificationpane.cpp \
     source/component.cpp \
-    source/popconfirm.cpp
+    source/popconfirm.cpp \
+    source/slider.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -63,7 +64,8 @@ HEADERS  += include/wecomwnd.h \
     include/navigationbar.h \
     include/notificationpane.h \
     include/component.h \
-    include/popconfirm.h
+    include/popconfirm.h \
+    include/slider.h
 
 FORMS    += ui/wecomwnd.ui
 

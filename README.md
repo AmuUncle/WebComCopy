@@ -70,6 +70,9 @@
 #### 气泡确认框
 ![气泡确认框](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/组件_气泡确认框.gif)
 
+#### 滑动输入条
+![滑动输入条](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/组件_滑动输入条.gif)
+
 
 # 📝参考网址
 

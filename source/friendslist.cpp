@@ -105,7 +105,7 @@ void CFriendsList::InitList()
         QLabel *pLabelMsg = new QLabel(pItemWidget);
         QLabel *pLabelTime = new QLabel(pItemWidget);
 
-        int nIconIndex = qrand() % 41;
+        int nIconIndex = qrand() % 10;
         nIconIndex = qMax(nIconIndex, 1);
 
         pLabelIcon->setFixedSize(40, 40);

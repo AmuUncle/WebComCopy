@@ -39,7 +39,10 @@ SOURCES += source/main.cpp\
     source/notificationpane.cpp \
     source/component.cpp \
     source/popconfirm.cpp \
-    source/slider.cpp
+    source/slider.cpp \
+    source/dynamiccard.cpp \
+    source/datamgrpane.cpp \
+    source/userpane.cpp
 
 HEADERS  += include/wecomwnd.h \
     include/navpane.h \
@@ -65,7 +68,10 @@ HEADERS  += include/wecomwnd.h \
     include/notificationpane.h \
     include/component.h \
     include/popconfirm.h \
-    include/slider.h
+    include/slider.h \
+    include/dynamiccard.h \
+    include/datamgrpane.h \
+    include/userpane.h
 
 FORMS    += ui/wecomwnd.ui
 

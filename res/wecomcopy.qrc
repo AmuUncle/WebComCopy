@@ -9,13 +9,6 @@
         <file>WeComCopy.ttf</file>
         <file>WeComCopy_Tray.png</file>
         <file>right_arrow.png</file>
-        <file>img/compass_01.png</file>
-        <file>img/compass_02.png</file>
-        <file>img/compass_03.png</file>
-        <file>img/File Vault.png</file>
-        <file>img/Folder Actions Setup.png</file>
-        <file>img/Generic Application.png</file>
-        <file>img/Generic Network.png</file>
         <file>QRcode.png</file>
         <file>img/weather/1.png</file>
         <file>img/weather/2.png</file>
@@ -41,6 +34,8 @@
         <file>img/cat/cuteCloud004.png</file>
         <file>img/cat/cuteCloud005.png</file>
         <file>img/cat/rain.png</file>
+        <file>user_bg.png</file>
+        <file>Avatar.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/user (1).jpg</file>
@@ -53,36 +48,6 @@
         <file>icon/user (8).jpg</file>
         <file>icon/user (9).jpg</file>
         <file>icon/user (10).jpg</file>
-        <file>icon/user (11).jpg</file>
-        <file>icon/user (12).jpg</file>
-        <file>icon/user (13).jpg</file>
-        <file>icon/user (14).jpg</file>
-        <file>icon/user (15).jpg</file>
-        <file>icon/user (16).jpg</file>
-        <file>icon/user (17).jpg</file>
-        <file>icon/user (18).jpg</file>
-        <file>icon/user (19).jpg</file>
-        <file>icon/user (20).jpg</file>
-        <file>icon/user (21).jpg</file>
-        <file>icon/user (22).jpg</file>
-        <file>icon/user (23).jpg</file>
-        <file>icon/user (24).jpg</file>
-        <file>icon/user (25).jpg</file>
-        <file>icon/user (26).jpg</file>
-        <file>icon/user (27).jpg</file>
-        <file>icon/user (28).jpg</file>
-        <file>icon/user (29).jpg</file>
-        <file>icon/user (30).jpg</file>
-        <file>icon/user (31).jpg</file>
-        <file>icon/user (32).jpg</file>
-        <file>icon/user (33).jpg</file>
-        <file>icon/user (34).jpg</file>
-        <file>icon/user (35).jpg</file>
-        <file>icon/user (36).jpg</file>
-        <file>icon/user (37).jpg</file>
-        <file>icon/user (38).jpg</file>
-        <file>icon/user (39).jpg</file>
-        <file>icon/user (40).jpg</file>
     </qresource>
     <qresource prefix="/html">
         <file>html/css/litewebchat.css</file>
@@ -101,5 +66,7 @@
         <file>html/index1.html</file>
         <file>html/LICENSE</file>
         <file>html/README.md</file>
+        <file>html/echarts/echart_base.html</file>
+        <file>html/echarts/echarts.min.js</file>
     </qresource>
 </RCC>

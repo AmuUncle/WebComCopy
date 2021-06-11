@@ -10,6 +10,15 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QFont f = QFont("Microsoft Yahei", 9);
+//    int nFontId = QFontDatabase::addApplicationFont("consolas.ttf");
+//    QStringList strlistFontName = QFontDatabase::applicationFontFamilies(nFontId);
+
+//    if (strlistFontName.count() > 0)
+//    {
+//        f = QFont(strlistFontName.at(0), 9);
+//        f.setStyleStrategy(QFont::PreferAntialias);
+//    }
+
     f.setStyleStrategy(QFont::PreferAntialias);
     a.setFont(f);
 

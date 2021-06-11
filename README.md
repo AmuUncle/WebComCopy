@@ -73,6 +73,8 @@
 #### 滑动输入条
 ![滑动输入条](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/组件_滑动输入条.gif)
 
+### 动态主页
+![动态主页](https://gitee.com/hudejie/wecom-copy/raw/master/screenshot/动态主页.gif)
 
 # 📝参考网址
 

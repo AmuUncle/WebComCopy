@@ -17,6 +17,7 @@
 #include "catpane.h"
 #include "notificationpane.h"
 #include "component.h"
+#include "datamgrpane.h"
 
 
 #if _MSC_VER >= 1600
@@ -124,12 +125,12 @@ void WeComWnd::InitCtrl()
     label7->setStyleSheet("background-image: url(:/qss/res/img/Generic Network.png);background-position:center;background-repeat:no-repeat;");
 
     m_pStackedWidget->insertWidget(TABTITLE_MESSAGE, m_pMsgPane);
-    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, new CCatPane(this));  m_pContactsPane->hide();
-    m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, m_pWeatherPane);
+    m_pStackedWidget->insertWidget(TABTITLE_CONTACTS, new CDataMgrPane(this));  m_pContactsPane->hide();
+    m_pStackedWidget->insertWidget(TABTITLE_CALENDAR, new CComponent(this));
     m_pStackedWidget->insertWidget(TABTITLE_WORKSPACE, new CClockPane(this));
     m_pStackedWidget->insertWidget(TABTITLE_WEDOC, new CIncoFontPane(this));
-    m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, new CComponent(this));
-    m_pStackedWidget->insertWidget(TABTITLE_MEETING, label7);
+    m_pStackedWidget->insertWidget(TABTITLE_WEDRIVE, m_pWeatherPane);
+    m_pStackedWidget->insertWidget(TABTITLE_MEETING, new CCatPane(this));
 
     m_btnMin->setFixedSize(36, 26);
     m_btnMax->setFixedSize(36, 26);

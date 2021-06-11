@@ -517,3 +517,13 @@ QWidget[form="iconfontpane"] QPushButton[IconfontBtn="true"]:pressed
 	border-radius:6px;
 	color:#FFFFFF;
 }
+
+/*************************************************
+* userpane
+*************************************************/
+
+QWidget[form="userpane"]
+{
+    background:#FFFFFF;
+	border-radius:6px;
+}

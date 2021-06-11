@@ -122,7 +122,7 @@ void CSlider::paintEvent(QPaintEvent *)
     painter.setBrush(QColor(colorEllipse));
 
     if (!m_bOnlyEnd)
-     painter.drawEllipse(itemStart.rcArar.marginsAdded(QMargins(2, 2, 2, 2)));
+        painter.drawEllipse(itemStart.rcArar.marginsAdded(QMargins(2, 2, 2, 2)));
 
     painter.drawEllipse(itemEnd.rcArar.marginsAdded(QMargins(2, 2, 2, 2)));
     painter.restore();
